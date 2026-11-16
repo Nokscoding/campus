@@ -137,3 +137,24 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
 .student-match-label{display:inline-block;background:#e8e1ff;color:#5131bb;padding:6px 9px;border-radius:8px;font-size:10px;font-weight:800;margin:0 0 8px 0;line-height:1.4}
 .student-match-secondary{background:#edf3ff;color:#345a9b}
 @media(max-width:640px){.school-signup-fields{padding:13px;margin:8px 0 15px}.campus-ranking-info{padding:10px 12px;font-size:11px}.student-match-label{font-size:9px}}
+
+
+/* Confirmation de dépôt et notifications étudiantes */
+.publish-success-modal{text-align:center;max-width:490px;padding:36px 30px}
+.publish-success-icon{display:grid;place-items:center;width:76px;height:76px;margin:0 auto 14px}
+.publish-success-modal h2{font:800 clamp(29px,5vw,39px)/1.15 Outfit,Arial,sans-serif;margin:12px 0 16px}
+.publish-success-modal p{color:#675e80;font-size:14px;line-height:1.75;margin:11px 0}
+.publish-success-modal p strong{color:#241842}
+.publish-success-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:23px}
+.soft-dismiss{border:1px solid #e3dcf5;background:#f7f4ff;color:#5437a9;border-radius:11px;padding:11px 15px;font-weight:800;cursor:pointer;font-size:13px}
+.campus-notification{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;background:white;border:1px solid #e8e1f6;border-radius:17px;padding:18px}
+.campus-notification-unread{background:#f8f5ff;border-color:#d9ccff}
+.notification-row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.notification-new-dot{color:#5935ec;font-size:11px;font-weight:900}
+.notification-message{flex:1;min-width:0}
+.notification-message h3{font:800 19px Outfit,Arial,sans-serif;margin:9px 0 4px}
+.notification-message p{color:#655d79;font-size:13px;line-height:1.6;margin:0 0 9px;overflow-wrap:anywhere}
+.notification-message small{font-size:11px;color:#9487a5}
+.notification-actions{display:flex;align-items:flex-end;flex-direction:column;gap:7px}
+.notification-actions .button{padding:10px 12px}
+@media(max-width:640px){.publish-success-modal{padding:25px 19px}.publish-success-actions>*{width:100%}.campus-notification{display:block}.notification-actions{flex-direction:row;align-items:center;flex-wrap:wrap;margin-top:12px}}
