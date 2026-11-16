@@ -1,5 +1,5 @@
 'use client';
-import Link from 'next/link';import {useEffect,useMemo,useState} from 'react';import {useParams} from 'next/navigation';import {createClient} from '@supabase/supabase-js';import {optimizeProductPhoto} from '../../../../lib/optimize-image';
+import Link from 'next/link';import {useEffect,useMemo,useState} from 'react';import {useParams} from 'next/navigation';import {createClient} from '@supabase/supabase-js';import {optimizeProductPhoto} from '../../../lib/optimize-image';
 const logo='https://res.cloudinary.com/jrgtsxkt/image/upload/f_auto,q_auto,w_96,h_96,c_fill/v1794856878/campus/brand/approved-ribbon-mark.png';
 export default function Edit(){
  const {id}=useParams(),sb=useMemo(()=>{const u=process.env.NEXT_PUBLIC_SUPABASE_URL,k=process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;return u&&k?createClient(u,k):null},[]);
