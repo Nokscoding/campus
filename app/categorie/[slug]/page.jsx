@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import Link from 'next/link';import {createClient} from '@supabase/supabase-js';import {notFound} from 'next/navigation';
 const config={
  ordinateurs:{label:'Ordinateurs',heading:"Ordinateurs d'occasion entre étudiants à Lubumbashi",desc:"Trouve un PC portable d'occasion pour les cours, la programmation, les travaux pratiques ou la bureautique. Les appareils sont inspectés par un agent CAMPUS avant livraison.",keywords:['ordinateur portable occasion Lubumbashi','PC étudiant RDC','laptop étudiant']},
