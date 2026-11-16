@@ -1,6 +1,6 @@
 import './style.css';
 const origin='https://campus-marketplace-smoky-one.vercel.app';
-const logo='https://res.cloudinary.com/jrgtsxkt/image/upload/v1794856878/campus/brand/approved-ribbon-mark.png';
+const logo='https://res.cloudinary.com/jrgtsxkt/image/upload/f_auto,q_auto,w_96,h_96,c_fill/v1794856878/campus/brand/approved-ribbon-mark.png';
 const hero='https://res.cloudinary.com/jrgtsxkt/image/upload/v1794856931/campus/illustrations/hero-etudiants-v1.webp';
 export const metadata={
  metadataBase:new URL(origin),
