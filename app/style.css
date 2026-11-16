@@ -98,3 +98,30 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
 .auth-switch{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:7px;margin:16px 0 2px}
 .auth-switch .mode-switch{margin:3px 0;font-size:13px;line-height:1.5}
 @media(max-width:640px){.auth-form-heading{font-size:21px}.auth-switch{justify-content:center}.account-form{max-width:100%}.auth-feedback-links{flex-direction:column}.auth-feedback-links button{width:100%}}
+
+/* Marketplace-first: les annonces sont prioritaires, l'illustration reste secondaire */
+.listings-section{background:#fff;padding-top:46px;padding-bottom:58px}
+.categories-section{background:#faf9ff;padding-top:46px}
+.hero-photo-panel{max-width:495px;max-height:330px;overflow:hidden;border-radius:22px;box-shadow:none}
+.hero-photo{width:100%;height:100%;max-height:330px;object-fit:cover;object-position:center center;border-radius:20px;box-shadow:none}
+.hero{padding-top:45px;padding-bottom:45px}
+.hero h1{font-size:clamp(38px,4.3vw,64px);margin:16px 0 14px}
+.hero-copy>p{line-height:1.55}
+.hero-trust{margin-top:17px}
+.hero-actions{margin-top:19px}
+.hero-search{margin-top:17px;margin-bottom:0}
+@media(max-width:640px){
+ .hero{padding:25px 17px 24px!important;gap:14px!important}
+ .hero .eyebrow{font-size:9px;max-width:100%;line-height:1.4;letter-spacing:.04em;padding:8px 10px}
+ .hero h1{font-size:clamp(33px,9vw,42px)!important;line-height:1.05!important;margin:13px 0 12px!important}
+ .hero-copy>p{font-size:13px!important;line-height:1.55!important}
+ .hero-photo-panel{max-width:100%;max-height:200px;overflow:hidden;border-radius:15px;margin-top:2px}
+ .hero-photo{width:100%;height:200px;object-fit:cover;object-position:center 41%;border-radius:15px}
+ .hero-actions{margin-top:13px!important}
+ .hero-actions .button{padding:11px 8px!important}
+ .hero-trust{margin-top:13px!important;font-size:10px!important}
+ .hero-search{margin:12px 0 0}
+ .hero-search input{padding:9px 11px}
+ .listings-section{padding-top:33px;padding-bottom:42px}
+ .categories-section{padding-top:37px}
+}
