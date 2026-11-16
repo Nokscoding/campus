@@ -158,3 +158,5 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
 .notification-actions{display:flex;align-items:flex-end;flex-direction:column;gap:7px}
 .notification-actions .button{padding:10px 12px}
 @media(max-width:640px){.publish-success-modal{padding:25px 19px}.publish-success-actions>*{width:100%}.campus-notification{display:block}.notification-actions{flex-direction:row;align-items:center;flex-wrap:wrap;margin-top:12px}}
+
+.campus-sms-preference{display:flex!important;gap:13px;align-items:flex-start;background:#f7f3ff;border:1px solid #ded5ff;border-radius:13px;padding:15px;margin:10px 0 22px;color:#352653;cursor:pointer}.campus-sms-preference input{width:21px!important;height:21px;min-width:21px;margin:2px 0 0!important;accent-color:#5935ec}.campus-sms-preference strong{display:block;font-size:13px;margin-bottom:6px;line-height:1.45}.campus-sms-preference small{display:block;color:#776e8c;font-size:11px;line-height:1.65}
