@@ -83,3 +83,18 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
 .campus-modal-backdrop{position:fixed;z-index:2000;inset:0;background:#140d2acc;display:flex;justify-content:center;align-items:center;padding:16px;overflow:auto}.campus-modal{background:white;border-radius:22px;padding:28px;width:min(100%,650px);max-height:92vh;overflow:auto;box-shadow:0 32px 80px #0003}.campus-modal h2{font:800 29px Outfit,Arial,sans-serif}.campus-modal p{line-height:1.7;color:#665e7f;overflow-wrap:anywhere}.modal-close{float:right;background:#f0ecfa;border:0;padding:10px 14px;border-radius:10px;color:#5935ec;font-weight:800;cursor:pointer}.inspection-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.inspection-gallery img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px}.campus-modal small{color:#877e99}.receipt-row{display:flex;justify-content:space-between;gap:10px;padding:14px 0;border-bottom:1px solid #eeeaf6}.receipt-total{font-size:17px;color:#4a2cc1}.print-button{margin-top:20px}@media(max-width:640px){.campus-modal{padding:19px}.inspection-gallery{grid-template-columns:1fr}}@media print{body>*{visibility:hidden}.campus-modal-backdrop,.receipt-print,.receipt-print *{visibility:visible}.campus-modal-backdrop{position:absolute;background:white;inset:0}.receipt-print{box-shadow:none}.modal-close,.print-button{display:none}}
 
 .edit-photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:10px;margin:12px 0 24px}.edit-photo{position:relative;border-radius:12px;overflow:hidden;border:1px solid #e4daf7;background:#f3effe}.edit-photo img{display:block;width:100%;aspect-ratio:1;object-fit:cover}.edit-photo button{display:block;width:100%;border:0;color:#773c45;background:#fff0f0;padding:9px;font-size:12px;font-weight:800;cursor:pointer}.archive-button{display:block;margin:20px auto 0;background:transparent;color:#ba4b53;border:1px solid #f0d3d3;padding:11px 15px;border-radius:10px;cursor:pointer;font-weight:800}
+
+/* CAMPUS : authentification claire et mobile */
+.auth-form-heading{font-family:Outfit,Arial,sans-serif;font-size:23px;font-weight:800;letter-spacing:-.03em;margin:0 0 21px;color:#20163d}
+.account-form{max-width:540px}
+.account-form form>label{display:block;margin:13px 0 5px;font-size:13px;font-weight:800}
+.account-form form>input{margin:5px 0 16px;min-height:52px}
+.auth-feedback{border-radius:14px;padding:14px 16px;margin-top:19px;line-height:1.7;font-size:13px;border:1px solid #ded5ff;background:#f5f1ff;color:#4e319d}
+.auth-feedback-error{background:#fff4f1;border-color:#ffcec7;color:#903e32}
+.auth-feedback-success{background:#effaf3;border-color:#c2e7cd;color:#21683c}
+.auth-feedback-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:11px}
+.auth-feedback-links button,.auth-resend{border:0;background:white;color:#4f2cc9;border-radius:9px;padding:9px 11px;font-weight:800;font-size:12px;cursor:pointer}
+.auth-resend{display:block;margin-top:12px}
+.auth-switch{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:7px;margin:16px 0 2px}
+.auth-switch .mode-switch{margin:3px 0;font-size:13px;line-height:1.5}
+@media(max-width:640px){.auth-form-heading{font-size:21px}.auth-switch{justify-content:center}.account-form{max-width:100%}.auth-feedback-links{flex-direction:column}.auth-feedback-links button{width:100%}}
