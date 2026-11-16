@@ -1,5 +1,5 @@
 'use client';
-import Link from 'next/link';import {useEffect,useMemo,useState} from 'react';import {useParams} from 'next/navigation';import {createClient} from '@supabase/supabase-js';
+import Link from 'next/link';import {useEffect,useMemo,useState} from 'react';import {useParams} from 'next/navigation';import {createClient} from '@supabase/supabase-js';import {optimizeProductPhoto} from '../../../../lib/optimize-image';
 const logo='https://res.cloudinary.com/jrgtsxkt/image/upload/f_auto,q_auto,w_96,h_96,c_fill/v1794856878/campus/brand/approved-ribbon-mark.png';
 export default function Edit(){
  const {id}=useParams(),sb=useMemo(()=>{const u=process.env.NEXT_PUBLIC_SUPABASE_URL,k=process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;return u&&k?createClient(u,k):null},[]);
@@ -13,8 +13,8 @@ export default function Edit(){
    if(changeError)throw changeError;
    const {data:{user}}=await sb.auth.getUser();if(!user)throw Error('Connexion expirée.');
    for(const f of files){if(!['image/jpeg','image/png','image/webp'].includes(f.type)||f.size>5242880)throw Error('Photos JPG/PNG/WebP de 5 Mo maximum.');
-    const ext=f.type==='image/png'?'png':f.type==='image/webp'?'webp':'jpg';const filePath=user.id+'/'+listing.id+'/'+crypto.randomUUID()+'.'+ext;
-    setMessage('Envoi des nouvelles photos…');const {error:uploadError}=await sb.storage.from('campus-listing-photos').upload(filePath,f,{contentType:f.type,upsert:false});
+    const prepared=await optimizeProductPhoto(f);const ext=prepared.extension;const filePath=user.id+'/'+listing.id+'/'+crypto.randomUUID()+'.'+ext;
+    setMessage('Envoi des nouvelles photos…');const {error:uploadError}=await sb.storage.from('campus-listing-photos').upload(filePath,prepared.file,{contentType:prepared.type,upsert:false});
     if(uploadError)throw uploadError;photos.push(sb.storage.from('campus-listing-photos').getPublicUrl(filePath).data.publicUrl);
    }
    const {error:photoError}=await sb.from('campus_listings').update({images:photos}).eq('id',listing.id);
