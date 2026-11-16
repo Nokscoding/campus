@@ -1,0 +1,1 @@
+export const metadata={title:'Modifier une annonce étudiante',robots:{index:false,follow:false}};export default function EditLayout({children}){return children}
