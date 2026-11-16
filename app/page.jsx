@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import Link from 'next/link';import {createClient} from '@supabase/supabase-js';
 const url=process.env.NEXT_PUBLIC_SUPABASE_URL, key=process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const categories=[['Ordinateurs','laptop','ordinateurs'],['Téléphones','phone','telephones'],['Livres & cours','book','livres'],['Mode','fashion','mode'],['Accessoires','audio','accessoires']];
