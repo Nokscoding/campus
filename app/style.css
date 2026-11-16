@@ -125,3 +125,15 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
  .listings-section{padding-top:33px;padding-bottom:42px}
  .categories-section{padding-top:37px}
 }
+
+/* Choix universitaires et catalogue personnalisé CAMPUS */
+.school-signup-fields{margin:13px 0 21px;padding:17px 16px;background:#f7f4ff;border:1px solid #e4dcff;border-radius:15px}
+.school-signup-fields label{display:block;font-size:13px;font-weight:850;margin:8px 0 5px}
+.school-signup-fields select,.profile-form select{width:100%;min-height:51px;background:white;border:1px solid #e1dbf0;border-radius:12px;padding:11px 13px;color:#21183d;margin:4px 0 13px;max-width:100%;font-size:14px}
+.school-field-caption{font-size:12px;color:#706385;line-height:1.55;margin:2px 0 0}
+.profile-form select{background:#faf9ff}
+.campus-ranking-info{display:flex;align-items:flex-start;gap:9px;background:#f0eaff;border:1px solid #ded4ff;border-radius:13px;padding:12px 15px;color:#4e3d89;font-size:12px;line-height:1.6;max-width:720px;margin-top:14px}
+.campus-ranking-dot{width:9px;height:9px;flex:0 0 9px;border-radius:50%;background:#6841e8;margin-top:5px}
+.student-match-label{display:inline-block;background:#e8e1ff;color:#5131bb;padding:6px 9px;border-radius:8px;font-size:10px;font-weight:800;margin:0 0 8px 0;line-height:1.4}
+.student-match-secondary{background:#edf3ff;color:#345a9b}
+@media(max-width:640px){.school-signup-fields{padding:13px;margin:8px 0 15px}.campus-ranking-info{padding:10px 12px;font-size:11px}.student-match-label{font-size:9px}}
