@@ -1,0 +1,3 @@
+import './style.css';
+export const metadata={title:'CAMPUS | Achète et vends entre étudiants',description:'CAMPUS, marketplace étudiante à Lubumbashi : ordinateurs, téléphones, livres et accessoires. Inspection par un agent agréé, livraison sécurisée et paiement en espèces.',robots:{index:true,follow:true}};
+export default function RootLayout({children}){return <html lang="fr"><body>{children}</body></html>}
