@@ -58,3 +58,20 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
 .form-message{color:#3d2a92;line-height:1.6}
 .small-note{font-size:12px;line-height:1.5}
 @media(max-width:640px){.search-form{flex-direction:column;align-items:stretch;gap:9px}.search-form input,.search-form .button{width:100%}.sell-page{padding:35px 15px 65px}.form-two{grid-template-columns:1fr;gap:0}.sell-form{padding:22px 19px}.form-intro h1{font-size:36px}}
+
+/* Campus identity and editorial imagery */
+.brand-image{display:block;width:40px;height:40px;border-radius:11px;object-fit:cover;flex-shrink:0}
+.hero-photo-panel{position:relative;max-width:700px;width:100%;margin:auto;align-self:center}
+.hero-photo{width:100%;height:auto;display:block;object-fit:contain;border-radius:28px;box-shadow:0 26px 65px #4320bb16}
+.hero-photo-caption{position:absolute;left:5%;bottom:-16px;background:white;border:1px solid #eee8ff;border-radius:99px;padding:13px 18px;box-shadow:0 12px 24px #271c5b17;font-size:12px;font-weight:800;display:flex;gap:9px;align-items:center}
+.caption-dot{display:inline-block;width:9px;height:9px;background:#ff9134;border-radius:100%}
+.confidence{margin:10px clamp(20px,6vw,90px) 70px;background:#f7f4ff;border:1px solid #e9e2ff;border-radius:25px;padding:clamp(25px,4vw,48px);display:flex;gap:26px;align-items:center}
+.confidence-icon{background:white;min-width:105px;width:105px;height:105px;border-radius:25px;display:grid;place-items:center}
+.confidence-icon svg{width:69px;height:69px}.confidence h2,.faq-section h2{font-family:Outfit,Arial,sans-serif;font-size:clamp(25px,3vw,35px);line-height:1.17;letter-spacing:-.04em;margin:9px 0}.confidence p{color:#66607e;line-height:1.75;margin:0;max-width:840px}
+.faq-section{padding:16px clamp(20px,6vw,90px) 78px}.faq-head{max-width:650px;margin-bottom:30px}
+.faq-list{display:grid;grid-template-columns:1fr 1fr;gap:13px}.faq-list details{border:1px solid #ebe7f4;border-radius:17px;background:#fff;padding:20px}
+.faq-list summary{font-weight:800;cursor:pointer;line-height:1.5;list-style-position:inside}.faq-list details[open]{border-color:#c8b9ff;background:#faf9ff}
+.faq-list p{color:#6d6582;line-height:1.7;font-size:14px;margin:13px 0 0}
+@media(max-width:800px){.faq-list{grid-template-columns:1fr}.confidence{align-items:flex-start}.hero-photo-panel{max-width:510px}}
+@media(max-width:640px){.brand-image{width:31px;height:31px;border-radius:9px}.hero-photo{border-radius:19px}.hero-photo-caption{position:relative;left:auto;bottom:auto;margin:-12px auto 0;max-width:max-content;box-shadow:0 8px 20px #29185a10}.confidence{margin:4px 20px 45px;flex-direction:column;gap:16px;padding:23px}.confidence-icon{width:70px;height:70px;min-width:70px;border-radius:17px}.confidence-icon svg{width:48px;height:48px}.faq-section{padding:20px 20px 65px}.faq-list details{padding:16px}.hero-photo-panel{padding:0 2px}}
+.campus-loading{min-height:65vh;display:grid;place-content:center;justify-items:center;gap:18px;color:var(--purple);font-weight:800}.campus-loading img{animation:campus-pulse 1.5s ease-in-out infinite}@keyframes campus-pulse{50%{transform:scale(.91);opacity:.6}}@media(prefers-reduced-motion:reduce){.campus-loading img{animation:none}}
