@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import Link from 'next/link';import {createClient} from '@supabase/supabase-js';import RequestOrder from './RequestOrder';
 const logo='https://res.cloudinary.com/jrgtsxkt/image/upload/f_auto,q_auto,w_96,h_96,c_fill/v1794856878/campus/brand/approved-ribbon-mark.png';const u=process.env.NEXT_PUBLIC_SUPABASE_URL,k=process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 async function getProduct(id){if(!u||!k||!/^[0-9a-f-]{36}$/i.test(id))return null;try{const sb=createClient(u,k,{auth:{persistSession:false,autoRefreshToken:false}});const {data,error}=await sb.from('campus_listings').select('id,title,description,price,currency,category,condition,images,created_at').eq('status','published').eq('id',id).maybeSingle();return error?null:data}catch{return null}}
