@@ -160,3 +160,35 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
 @media(max-width:640px){.publish-success-modal{padding:25px 19px}.publish-success-actions>*{width:100%}.campus-notification{display:block}.notification-actions{flex-direction:row;align-items:center;flex-wrap:wrap;margin-top:12px}}
 
 .campus-sms-preference{display:flex!important;gap:13px;align-items:flex-start;background:#f7f3ff;border:1px solid #ded5ff;border-radius:13px;padding:15px;margin:10px 0 22px;color:#352653;cursor:pointer}.campus-sms-preference input{width:21px!important;height:21px;min-width:21px;margin:2px 0 0!important;accent-color:#5935ec}.campus-sms-preference strong{display:block;font-size:13px;margin-bottom:6px;line-height:1.45}.campus-sms-preference small{display:block;color:#776e8c;font-size:11px;line-height:1.65}
+
+/* Notifications CAMPUS — header et panneaux responsives */
+.campus-header-actions{display:flex;align-items:center;gap:10px}
+.campus-notification-widget{position:relative;display:inline-flex;align-items:center;flex:0 0 auto}
+.campus-bell-trigger{position:relative;display:inline-flex;align-items:center;justify-content:center;flex:0 0 42px;width:42px;height:42px;border:1px solid #e4ddf7;border-radius:13px;background:#f6f2ff;color:#5b39d9;cursor:pointer}
+.campus-bell-trigger:hover,.campus-bell-trigger:focus-visible{background:#ece4ff;outline:2px solid transparent;box-shadow:0 0 0 2px #bcadff}
+.campus-bell-badge{position:absolute;top:-6px;right:-7px;min-width:19px;height:19px;padding:0 4px;border-radius:12px;background:#ef7c32;color:white;display:grid;place-items:center;font-size:10px;font-weight:900;line-height:1}
+.campus-bell-panel{position:absolute;top:calc(100% + 14px);right:0;z-index:1500;width:min(370px,calc(100vw - 28px));max-height:min(70vh,560px);display:flex;flex-direction:column;overflow:hidden;background:#fff;border-radius:20px;border:1px solid #e8def9;box-shadow:0 20px 60px #28125e29;color:#231837;text-align:left;white-space:normal}
+.campus-bell-top{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;padding:17px 18px;border-bottom:1px solid #eee9f7}
+.campus-bell-top strong{display:block;font:850 19px Outfit,Arial,sans-serif}
+.campus-bell-top span{display:block;font-size:12px;color:#756c88;margin-top:3px}
+.campus-bell-close{border:0;background:#f4f0ff;color:#5d40aa;border-radius:8px;width:30px;height:30px;font-size:22px;cursor:pointer}
+.campus-bell-feed{overflow-y:auto;min-height:0}
+.campus-bell-entry{padding:14px 17px;border-bottom:1px solid #f0ecf8}
+.campus-bell-entry.unread{background:#f7f4ff}
+.campus-bell-entry-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.campus-bell-entry-top strong{font-size:13px;font-weight:850;color:#241b40}
+.campus-bell-dot{width:8px;height:8px;border-radius:50%;background:#6441e9;flex-shrink:0}
+.campus-bell-entry p{margin:6px 0 9px;color:#655c78;font-size:12px;line-height:1.55;overflow-wrap:anywhere}
+.campus-bell-entry-bottom{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.campus-bell-entry-bottom time{font-size:11px;color:#9689a8}
+.campus-bell-entry-bottom button,.campus-bell-footer button{border:0;background:transparent;color:#5434cc;font-size:11px;font-weight:800;cursor:pointer;text-align:left;padding:3px}
+.campus-bell-footer{padding:12px 15px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;border-top:1px solid #eee9f7}
+.campus-bell-footer a{font-size:12px;font-weight:900;color:#5732cf!important;text-decoration:none}
+.campus-bell-empty{display:grid;justify-items:center;gap:8px;padding:35px 20px;color:#6544cf;text-align:center}
+.campus-bell-empty strong{font-size:15px;color:#302344}
+.campus-bell-empty p{margin:0;font-size:12px;line-height:1.6;color:#797088}
+.campus-bell-toast{position:fixed;z-index:2001;right:18px;top:92px;display:flex;align-items:start;gap:15px;width:min(340px,calc(100vw - 26px));padding:16px 18px;border:1px solid #e5d9ff;border-left:4px solid #603bea;background:white;border-radius:14px;box-shadow:0 20px 60px #24145c23;text-align:left}
+.campus-bell-toast strong{font-size:13px;color:#2b2053}
+.campus-bell-toast p{font-size:12px;color:#655d7a;line-height:1.55;margin:6px 0 0}
+.campus-bell-toast button{margin-left:auto;background:transparent;border:0;color:#77658c;font-size:21px;cursor:pointer}
+@media(max-width:640px){.site-header nav,.campus-header-actions{gap:6px!important}.site-header .brand{font-size:17px!important}.campus-bell-trigger{width:37px;height:37px;flex-basis:37px;border-radius:10px}.campus-bell-panel{position:fixed;top:72px;right:13px;left:13px;width:auto;max-height:75vh}.campus-bell-toast{top:77px;right:13px;left:13px;width:auto}.site-header nav .account-link{padding:9px 8px!important}}
