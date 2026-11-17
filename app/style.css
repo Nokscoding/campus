@@ -307,3 +307,24 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
 .campus-legal-consent input{width:17px;height:17px;flex:0 0 17px;margin:2px 0 0;accent-color:#5935ec}
 .campus-legal-consent a{color:#5534ca;text-decoration:underline;text-underline-offset:2px;font-weight:800}
 @media(max-width:700px){.legal-page{padding:40px 15px 75px}.legal-content{border-radius:17px;padding:20px 17px}.legal-content h2{font-size:18px}.legal-content p,.legal-content li{font-size:13px}.legal-contact{display:block;padding:18px}.legal-contact>div:last-child{margin-top:15px}.legal-footer{display:block}.footer-legal-links{justify-content:flex-start;margin-top:20px}.campus-cookie-notice{left:10px;bottom:90px;width:calc(100vw - 20px);padding:13px;gap:10px}.campus-cookie-notice button{padding:10px 11px}.legal-site-header{padding:12px 16px}}
+
+/* CAMPUS : commission de vente transparente */
+.campus-seller-fee-preview{margin:18px 0 23px;padding:19px 20px;border:1px solid #dcd7ec;background:#fbfaff;border-radius:16px;max-width:100%;color:#26203a}
+.campus-seller-fee-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 8px}
+.campus-seller-fee-heading strong{font:800 17px/1.3 Outfit,Arial,sans-serif}
+.campus-seller-fee-heading span{font-size:11px;color:#5d4699;background:#eee9fa;padding:6px 9px;border-radius:99px;font-weight:750}
+.campus-seller-fee-preview p{margin:7px 0 13px;color:#6b607e;font-size:12px;line-height:1.6}
+.campus-seller-fee-breakdown{padding:14px 0 7px;border-top:1px solid #e8e2f4;display:grid;gap:12px}
+.campus-seller-fee-breakdown>div{display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:13px;color:#4c445d}
+.campus-seller-fee-breakdown strong{font-weight:800;white-space:nowrap}
+.campus-seller-fee-breakdown .campus-seller-fee-net{border-top:1px solid #e5dfef;padding-top:12px;font-weight:800;color:#211839}
+.campus-seller-fee-breakdown .campus-seller-fee-net strong{font:900 20px Outfit,Arial,sans-serif;color:#2e785d}
+.campus-seller-fee-preview small{display:block;line-height:1.55;color:#7c728a;font-size:11px;margin-top:8px}
+.campus-seller-fee-preview small a{color:#5134bd;font-weight:800;text-decoration:underline;text-underline-offset:2px}
+.campus-seller-fee-placeholder{font-style:normal}
+.campus-seller-fee-summary{padding:15px 17px;border:1px solid #e4ddee;background:#faf8ff;border-radius:13px;margin-bottom:13px}
+.campus-seller-fee-summary strong{font-weight:850;color:#38256d}
+.campus-seller-fee-summary p{font-size:12px;line-height:1.7;color:#6e647e;margin:5px 0 0}
+.campus-seller-net{margin-top:6px;color:#3b7359}
+.campus-listing-fee-note{display:block;font-size:11px;color:#6a6277;margin:7px 0}
+@media(max-width:640px){.campus-seller-fee-preview{padding:15px 14px}.campus-seller-fee-breakdown .campus-seller-fee-net strong{font-size:18px}}
