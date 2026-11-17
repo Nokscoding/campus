@@ -3,6 +3,7 @@ import Link from 'next/link';
 import {useEffect,useMemo,useState} from 'react';
 import {createClient} from '@supabase/supabase-js';
 import CampusNotificationBell from '../components/CampusNotificationBell';
+import LegalLinks from '../components/LegalLinks';
 const email='nksserviceshelp@gmail.com';
 export default function Contact(){
  const sb=useMemo(()=>{const u=process.env.NEXT_PUBLIC_SUPABASE_URL,k=process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;return u&&k?createClient(u,k):null},[]);
@@ -36,5 +37,5 @@ export default function Contact(){
    {message&&<p className="campus-contact-feedback" role="status">{message}</p>}
   </section>
   <p className="campus-contact-footnote">Ne communique jamais ton mot de passe ou un code de connexion par WhatsApp ou par e-mail.</p>
- </main><footer className="footer"><strong>CAMPUS by NKS Services</strong><Link href="/">Retour à CAMPUS</Link></footer></>;
+ </main><footer className="footer"><strong>CAMPUS by NKS Services</strong><Link href="/">Retour à CAMPUS</Link><LegalLinks/></footer></>;
 }

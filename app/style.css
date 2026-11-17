@@ -276,3 +276,34 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
 .campus-push-control.compact button{border:0;background:none;color:#5935ec;font-size:11px;padding:4px 0;border-radius:0}
 .campus-push-message{font-size:11px;color:#7058a2;line-height:1.55}
 @media(max-width:650px){.campus-contact-methods{grid-template-columns:1fr}.campus-contact-page{padding:38px 18px 110px}.campus-bug-panel{padding:19px}.campus-support-dock{right:10px;bottom:10px}.campus-support-dock-main{padding:11px 12px}.campus-support-dock-secondary{padding:8px 10px}}
+
+/* CAMPUS – legal documents and privacy notice */
+.legal-page{max-width:980px;margin:0 auto;padding:62px 22px 90px}
+.legal-hero{max-width:780px;margin:0 auto 34px}
+.legal-hero h1{font:850 clamp(36px,5.5vw,58px)/1.08 Outfit,Arial,sans-serif;letter-spacing:-.045em;margin:14px 0}
+.legal-hero p{font-size:16px;line-height:1.75;color:#6c647f;max-width:720px}
+.legal-hero small{font-size:11px;color:#8b839b}
+.legal-brand-mark{display:grid;place-items:center;width:37px;height:37px;border-radius:12px;background:#5935ec;color:#fff;font-weight:900}
+.legal-content{max-width:780px;margin:0 auto;background:#fff;border:1px solid #ebe7f4;border-radius:22px;padding:clamp(21px,4vw,42px);box-shadow:0 14px 45px #29136808}
+.legal-content section+section{border-top:1px solid #eeeaf5;margin-top:27px;padding-top:24px}
+.legal-content h2{font:800 20px/1.3 Outfit,Arial,sans-serif;letter-spacing:-.02em;margin:0 0 12px;color:#211a38}
+.legal-content p,.legal-content li{font-size:14px;line-height:1.85;color:#514b62}
+.legal-content p+p{margin-top:11px}
+.legal-content ul,.legal-content ol{padding-left:22px;margin:12px 0}
+.legal-content li+li{margin-top:7px}
+.legal-content a{color:#5735d5;text-decoration:underline;text-underline-offset:3px}
+.legal-contact{max-width:780px;margin:22px auto 0;padding:22px;border:1px solid #e6def6;border-radius:18px;background:#f8f5ff;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.legal-contact strong{font-size:15px}.legal-contact p{font-size:12px;color:#756b88;margin:7px 0 0}
+.legal-contact>div:last-child{display:flex;flex-direction:column;align-items:flex-start;gap:8px;flex-shrink:0}
+.legal-whatsapp{font-size:12px;font-weight:750;color:#5635c9}
+.legal-footer{align-items:flex-start}
+.footer-legal-links{display:flex;flex-wrap:wrap;gap:12px 19px;align-items:center;justify-content:flex-end}
+.footer-legal-links a{font-size:12px;font-weight:700;color:#d9d3e9}
+.footer-legal-links a:hover{color:white;text-decoration:underline;text-underline-offset:4px}
+.campus-cookie-notice{position:fixed;left:16px;bottom:16px;z-index:1200;width:min(510px,calc(100vw - 32px));display:flex;align-items:center;gap:16px;padding:16px 17px;background:#211a38;color:#fff;border:1px solid #ffffff22;border-radius:17px;box-shadow:0 14px 45px #140d2c55}
+.campus-cookie-notice>div{min-width:0}.campus-cookie-notice strong{font-size:13px}.campus-cookie-notice p{font-size:11px;line-height:1.55;color:#d6d0e5;margin:5px 0}.campus-cookie-notice a{font-size:11px;color:#c7b7ff;text-decoration:underline;text-underline-offset:3px}
+.campus-cookie-notice button{flex-shrink:0;border:0;border-radius:10px;background:#fff;color:#392477;padding:10px 13px;font-size:11px;font-weight:850;cursor:pointer}
+.campus-legal-consent{display:flex!important;align-items:flex-start;gap:10px;margin:14px 0 18px!important;padding:13px;background:#f8f5ff;border:1px solid #e9e1fa;border-radius:12px;font-size:12px!important;line-height:1.6;font-weight:500!important}
+.campus-legal-consent input{width:17px;height:17px;flex:0 0 17px;margin:2px 0 0;accent-color:#5935ec}
+.campus-legal-consent a{color:#5534ca;text-decoration:underline;text-underline-offset:2px;font-weight:800}
+@media(max-width:700px){.legal-page{padding:40px 15px 75px}.legal-content{border-radius:17px;padding:20px 17px}.legal-content h2{font-size:18px}.legal-content p,.legal-content li{font-size:13px}.legal-contact{display:block;padding:18px}.legal-contact>div:last-child{margin-top:15px}.legal-footer{display:block}.footer-legal-links{justify-content:flex-start;margin-top:20px}.campus-cookie-notice{left:10px;bottom:90px;width:calc(100vw - 20px);padding:13px;gap:10px}.campus-cookie-notice button{padding:10px 11px}.legal-site-header{padding:12px 16px}}
