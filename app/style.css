@@ -192,3 +192,21 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
 .campus-bell-toast p{font-size:12px;color:#655d7a;line-height:1.55;margin:6px 0 0}
 .campus-bell-toast button{margin-left:auto;background:transparent;border:0;color:#77658c;font-size:21px;cursor:pointer}
 @media(max-width:640px){.site-header nav,.campus-header-actions{gap:6px!important}.site-header .brand{font-size:17px!important}.campus-bell-trigger{width:37px;height:37px;flex-basis:37px;border-radius:10px}.campus-bell-panel{position:fixed;top:72px;right:13px;left:13px;width:auto;max-height:75vh}.campus-bell-toast{top:77px;right:13px;left:13px;width:auto}.site-header nav .account-link{padding:9px 8px!important}}
+
+/* Transparence des produits et catégories proposées */
+.campus-category-choice{min-width:0}.campus-category-choice select{width:100%}
+.campus-category-proposal{border:1px solid #ddd0fa;border-radius:13px;padding:15px;background:#f8f5ff;margin:8px 0 14px}
+.campus-category-proposal label{display:block;margin:0 0 6px;font-weight:850;font-size:12px}
+.campus-category-proposal input{width:100%;margin:0 0 7px}.campus-category-proposal p{font-size:12px;color:#685e84;line-height:1.6;margin:0}
+.campus-issue-disclosure{margin:15px 0 23px}
+.campus-issue-toggle{display:flex;align-items:center;gap:10px;min-height:46px;padding:11px 16px;border:1px solid #efc9a4;background:#fff7ed;color:#944f20;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer}
+.campus-issue-detail{border:1px solid #f1c797;background:#fff9f1;border-radius:14px;padding:17px}
+.campus-issue-title{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.campus-issue-title strong{color:#8a491b;font-size:14px}.campus-issue-title button{font-size:11px;font-weight:800;border:0;background:#f8e1c9;color:#87501f;border-radius:8px;padding:8px 10px;cursor:pointer}
+.campus-issue-detail label{display:block;margin:0 0 7px;font-size:12px;font-weight:800;color:#8b4819}
+.campus-issue-detail textarea{width:100%;background:white;margin-bottom:6px}.campus-issue-hint{font-size:12px;color:#795b40;line-height:1.6;margin:0}
+.campus-product-defect{padding:16px 18px;background:#fff6eb;border:1px solid #f0c99f;border-radius:14px;margin:19px 0 13px}
+.campus-product-defect strong{color:#94501a;font-size:14px}.campus-product-defect p{margin:8px 0 0;line-height:1.6;color:#684b32;white-space:pre-wrap;overflow-wrap:anywhere}
+.campus-product-no-defect{font-size:12px;color:#726d7e;margin:13px 0 3px}
+.campus-defect-card-tag{display:inline-block;border:1px solid #efcfaf;background:#fff4e7;color:#90531d;padding:5px 7px;border-radius:7px;font-size:10px;font-weight:850;margin-top:6px}
+@media(max-width:640px){.campus-issue-detail{padding:13px}.campus-category-proposal{padding:12px}}
