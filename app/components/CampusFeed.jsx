@@ -20,7 +20,7 @@ export default function CampusFeed({initialListings=[],search='',category='',var
     const {data:p}=await client.from('campus_profiles').select('university,faculty').eq('user_id',user.id).maybeSingle();
     if(!alive||!p?.university)return;
     // L'algorithme s'exécute côté base : seuls les produits publiés sont renvoyés.
-    const {data:recommended,error}=await client.rpc('campus_discover_listings',{
+    const {data:recommended,error}=await client.rpc('campus_discover_listings_v2',{
       p_search:search,p_category:category,p_limit:variant==='category'?48:24
     });
     if(!alive||error||!Array.isArray(recommended))return;
@@ -47,7 +47,7 @@ export default function CampusFeed({initialListings=[],search='',category='',var
     <span className="product-category">{p.category}</span>
     <h3><Link href={'/produit/'+p.id}>{p.title}</Link></h3>
     <strong>{Number(p.price).toLocaleString('fr-FR')} {p.currency}</strong>
-    <p>État déclaré : {p.condition}</p>
+    <p>État déclaré : {p.condition}</p>{p.has_issue&&<span className="campus-defect-card-tag">Défaut déclaré par le vendeur</span>}
    </div></article>)}</div>
   :<div className="empty-listings"><div className="empty-icon"><svg width="82" height="82" viewBox="0 0 82 82" fill="none" aria-hidden="true"><rect x="11" y="24" width="60" height="45" rx="9" fill="#ded4ff"/><path d="M11 36h60M25 24l8-12h16l8 12" stroke="#5935ec" strokeWidth="4" strokeLinecap="round"/><path d="M35 49h12m-6-6v12" stroke="#5935ec" strokeWidth="4" strokeLinecap="round"/></svg></div><h3>{search||category?"Aucune annonce trouvée":"Les premiers bons plans arrivent !"}</h3><p>{search||category?"Essaie une autre recherche ou consulte toutes les catégories.":"La communauté CAMPUS démarre. Sois parmi les premiers à proposer un produit."}</p><Link className="button" href="/vendre">Publier mon annonce</Link></div>}
  </section>;
