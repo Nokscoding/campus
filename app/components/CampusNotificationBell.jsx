@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import {useCallback,useEffect,useMemo,useRef,useState} from 'react';
 import {createClient} from '@supabase/supabase-js';
+import CampusPushControl from './CampusPushControl';
 
 const SELECT='id,kind,title,body,read_at,listing_id,created_at';
 const BellIcon=()=> <svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z"/><path d="M10 21h4"/></svg>;
@@ -99,7 +100,7 @@ export default function CampusNotificationBell(){
    <div className="campus-bell-footer">
     <Link href="/compte?onglet=notifications" onClick={()=>setOpen(false)}>Toutes mes notifications</Link>
     {unread>0&&<button type="button" onClick={markAll}>Tout marquer comme lu</button>}
-    {permission==='default'&&<button type="button" onClick={allowBrowserAlerts}>Activer les alertes du navigateur</button>}
+    <CampusPushControl compact/>{permission==='default'&&<button type="button" onClick={allowBrowserAlerts}>Alertes de bureau</button>}
    </div>
   </div>}
   {flash&&<div className="campus-bell-toast" role="status"><div><strong>{flash.title}</strong><p>{flash.body}</p></div><button type="button" aria-label="Fermer l'alerte" onClick={()=>setFlash(null)}>×</button></div>}
