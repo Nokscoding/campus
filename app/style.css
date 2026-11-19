@@ -328,3 +328,7 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
 .campus-seller-net{margin-top:6px;color:#3b7359}
 .campus-listing-fee-note{display:block;font-size:11px;color:#6a6277;margin:7px 0}
 @media(max-width:640px){.campus-seller-fee-preview{padding:15px 14px}.campus-seller-fee-breakdown .campus-seller-fee-net strong{font-size:18px}}
+
+/* Reprise d'une annonce après authentification */
+.campus-resume-auth-note{margin-top:15px!important;border:1px solid #dcd3f9;background:#f4f0ff;padding:12px 15px;border-radius:12px;color:#5036a1!important;font-size:13px!important;line-height:1.55!important}
+.campus-resume-auth-note strong{font-weight:850}
