@@ -9,7 +9,7 @@ export const CAMPUS_AVATARS=[
  {id:'avatar-06',label:'Barbe et sweat vert'},
  {id:'avatar-07',label:'Cheveux blonds et sweat rose'},
  {id:'avatar-08',label:'Sweat jaune'},
- {id:'avatar-09',label:'Longues tresses'},
+ {id:'avatar-09',label:'Longues tresses noires'},
  {id:'avatar-10',label:'Lunettes et hoodie noir'},
  {id:'avatar-11',label:'Veste à col crème'}
 ];
@@ -21,8 +21,10 @@ export function avatarUrl(sb,path,updatedAt){
 }
 export function AvatarVisual({choice,photoUrl,className='',label,size='regular'}){
  const index=CAMPUS_AVATARS.findIndex(v=>v.id===choice);
- const css= index>=0 ? {backgroundImage:"url('/avatars/campus-sprite.webp')",
- backgroundSize:'400% 300%',backgroundPosition:(index%4)*100/3+'% '+Math.floor(index/4)*50+'%'} : null;
+ const css=choice==='avatar-09'
+  ? {backgroundImage:"url('https://res.cloudinary.com/jrgtsxkt/image/upload/v1795113099/campus/avatars/avatar-09-tresses-noires.webp')",backgroundSize:'cover',backgroundPosition:'center'}
+  : index>=0 ? {backgroundImage:"url('/avatars/campus-sprite.webp')",
+  backgroundSize:'400% 300%',backgroundPosition:(index%4)*100/3+'% '+Math.floor(index/4)*50+'%'} : null;
  return <span className={'campus-avatar-visual '+className+' campus-avatar-'+size} style={choice==='custom'&&photoUrl?{backgroundImage:'url('+JSON.stringify(photoUrl).slice(1,-1)+')',backgroundSize:'cover',backgroundPosition:'center'}:css||{}} role="img" aria-label={label||'Avatar CAMPUS'}>
  {!css&&!(choice==='custom'&&photoUrl)&&<span aria-hidden="true">C</span>}
  </span>;
