@@ -332,3 +332,13 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
 /* Reprise d'une annonce après authentification */
 .campus-resume-auth-note{margin-top:15px!important;border:1px solid #dcd3f9;background:#f4f0ff;padding:12px 15px;border-radius:12px;color:#5036a1!important;font-size:13px!important;line-height:1.55!important}
 .campus-resume-auth-note strong{font-weight:850}
+
+/* Conseils photo avant la publication d'une annonce */
+.campus-photo-tips{border:1px solid #e6def5;background:#fbfaff;border-radius:14px;padding:14px 16px;margin:5px 0 20px;color:#3d3054}
+.campus-photo-tips-heading{display:flex;align-items:center;gap:9px;color:#5137ad;font-size:13px;line-height:1.45}
+.campus-photo-tips-heading svg{flex:none}
+.campus-photo-tips-heading strong{font-weight:800}
+.campus-photo-tips ul{padding-left:19px;margin:10px 0 0;display:grid;gap:6px}
+.campus-photo-tips li{font-size:12px;line-height:1.55;color:#625873}
+.campus-photo-tips li::marker{color:#866bcc}
+@media(max-width:640px){.campus-photo-tips{padding:13px 14px;margin-bottom:17px}.campus-photo-tips-heading{font-size:12.5px}}
