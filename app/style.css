@@ -342,3 +342,11 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
 .campus-photo-tips li{font-size:12px;line-height:1.55;color:#625873}
 .campus-photo-tips li::marker{color:#866bcc}
 @media(max-width:640px){.campus-photo-tips{padding:13px 14px;margin-bottom:17px}.campus-photo-tips-heading{font-size:12.5px}}
+
+/* CAMPUS - seller moderation request visible on the edit form */
+.campus-edit-moderation-notice{border:1px solid #e8c494;background:#fff8ee;color:#654422;border-radius:14px;padding:16px 17px;margin:0 0 19px}
+.campus-edit-moderation-notice strong{display:block;color:#85511d;font-size:14px}
+.campus-edit-moderation-notice p{font-size:13px;line-height:1.7;margin:8px 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.campus-edit-moderation-notice small{display:block;font-size:11px;color:#765e44;line-height:1.55}
+.campus-action-required{color:#995b14!important;font-size:12px;line-height:1.6;margin:7px 0}
+.campus-bell-edit-link{display:inline-flex;align-items:center;margin:0 0 11px;color:#6037c2;font-weight:850;font-size:12px;text-decoration:underline;text-underline-offset:3px}
