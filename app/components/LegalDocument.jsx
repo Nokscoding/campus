@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import CampusProfileShortcut from './CampusProfileShortcut';
 import LegalLinks from './LegalLinks';
 export default function LegalDocument({title,description,children,updated='17 novembre 2026'}){
  return <>
-  <header className="site-header legal-site-header"><Link href="/" className="brand"><span className="legal-brand-mark">C</span><span>CAMPUS</span></Link><nav><Link href="/">Accueil</Link><Link href="/contact" className="account-link">Assistance</Link></nav></header>
+  <header className="site-header legal-site-header"><Link href="/" className="brand"><span className="legal-brand-mark">C</span><span>CAMPUS</span></Link><nav><Link href="/">Accueil</Link><Link href="/contact" className="account-link">Assistance</Link><CampusProfileShortcut/></nav></header>
   <main className="legal-page">
    <div className="legal-hero"><span className="overline">CAMPUS · INFORMATIONS OFFICIELLES</span><h1>{title}</h1><p>{description}</p><small>Dernière mise à jour : {updated}</small></div>
    <article className="legal-content">{children}</article>
