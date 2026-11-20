@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import {useEffect,useMemo,useState} from 'react';
 import {createClient} from '@supabase/supabase-js';
+import CampusProfileShortcut from '../components/CampusProfileShortcut';
 import CampusNotificationBell from '../components/CampusNotificationBell';
 import LegalLinks from '../components/LegalLinks';
 const email='nksserviceshelp@gmail.com';
@@ -21,7 +22,7 @@ export default function Contact(){
   else{setMessage('Signalement envoyé à l’équipe CAMPUS. Merci !');setSubject('');setDescription('');}
   setBusy(false);
  }
- return <><header className="site-header"><Link href="/" className="brand">CAMPUS</Link><nav><Link href="/" className="account-link">Accueil</Link><CampusNotificationBell/></nav></header>
+ return <><header className="site-header"><Link href="/" className="brand">CAMPUS</Link><nav><Link href="/" className="nav-explore">Accueil</Link><CampusProfileShortcut/><CampusNotificationBell/></nav></header>
  <main className="campus-contact-page">
   <div className="campus-contact-hero"><span className="overline">ASSISTANCE CAMPUS</span><h1>Besoin d’aide ?</h1><p>Pour tes annonces, commandes ou livraisons sur le campus, notre équipe est disponible via WhatsApp ou e-mail.</p></div>
   <div className="campus-contact-methods">
