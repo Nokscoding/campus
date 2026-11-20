@@ -1,5 +1,5 @@
 'use client';
-import {useMemo,useRef,useState} from 'react';
+import {useEffect,useMemo,useRef,useState} from 'react';
 export const CAMPUS_AVATARS=[
  {id:'avatar-01',label:'Tresses et lunettes'},
  {id:'avatar-02',label:'Casquette rose'},
@@ -55,10 +55,25 @@ async function imageToWebp(file){
  }finally{image?.close?.();cleanup()}
 }
 export default function AvatarPicker({sb,user,profile,onSaved}){
- const [saving,setSaving]=useState(false),[message,setMessage]=useState(''),[status,setStatus]=useState('info');
- const input=useRef(null);
+ const [saving,setSaving]=useState(false),[message,setMessage]=useState(''),[status,setStatus]=useState('info'),[preview,setPreview]=useState(null);
+ const input=useRef(null),previewClose=useRef(null);
  const current=profile.avatar_choice;
  const photoUrl=useMemo(()=>current==='custom'?avatarUrl(sb,profile.avatar_path,profile.avatar_updated_at):null,[sb,current,profile.avatar_path,profile.avatar_updated_at]);
+ const previewLabel=CAMPUS_AVATARS.find(item=>item.id===preview)?.label||(preview==='custom'?'Ma photo personnelle':'Photo de profil');
+ useEffect(()=>{
+  if(!preview)return;
+  const before=document.activeElement;
+  const originalOverflow=document.body.style.overflow;
+  document.body.style.overflow='hidden';
+  previewClose.current?.focus();
+  const escape=e=>{if(e.key==='Escape')setPreview(null)};
+  document.addEventListener('keydown',escape);
+  return()=>{document.removeEventListener('keydown',escape);document.body.style.overflow=originalOverflow;before?.focus?.()};
+ },[preview]);
+ function notifyAvatarChange(data){
+  onSaved(data);
+  if(typeof window!=='undefined')window.dispatchEvent(new CustomEvent('campus:avatar-updated',{detail:{userId:user.id,avatar_choice:data.avatar_choice,avatar_path:data.avatar_path,avatar_updated_at:data.avatar_updated_at}}));
+ }
  async function selectAvatar(id){
   if(saving||!sb||!user||id===current)return;
   setSaving(true);setMessage('');
@@ -70,7 +85,7 @@ export default function AvatarPicker({sb,user,profile,onSaved}){
    const date=new Date().toISOString();
    const {data,error}=await sb.from('campus_profiles').upsert({user_id:user.id,avatar_choice:id,avatar_path:null,avatar_updated_at:date},{onConflict:'user_id'}).select('avatar_choice,avatar_path,avatar_updated_at').single();
    if(error)throw error;
-   onSaved(data);setStatus('success');setMessage('Avatar enregistré.');
+   notifyAvatarChange(data);setPreview(null);setStatus('success');setMessage('Avatar enregistré.');
   }catch(e){setStatus('error');setMessage(e.message||"L'avatar n'a pas pu être enregistré.")}
   finally{setSaving(false)}
  }
@@ -87,14 +102,14 @@ export default function AvatarPicker({sb,user,profile,onSaved}){
    const date=new Date().toISOString();
    const {data,error}=await sb.from('campus_profiles').upsert({user_id:user.id,avatar_choice:'custom',avatar_path:path,avatar_updated_at:date},{onConflict:'user_id'}).select('avatar_choice,avatar_path,avatar_updated_at').single();
    if(error)throw error;
-   onSaved(data);setStatus('success');setMessage('Ta photo de profil a été enregistrée.');
+   notifyAvatarChange(data);setStatus('success');setMessage('Ta photo de profil a été enregistrée.');
   }catch(e){setStatus('error');setMessage(e.message||'Impossible de téléverser la photo.')}
   finally{setSaving(false)}
  }
  return <section className="campus-avatar-picker" aria-label="Photo de profil">
-  <div className="campus-avatar-top"><AvatarVisual choice={current} photoUrl={photoUrl} size="large"/><div><strong>Ma photo de profil</strong><p>Choisis un personnage CAMPUS ou importe ta propre photo.</p><span className="campus-avatar-note">Ton avatar est visible sur CAMPUS. Tu peux le modifier à tout moment.</span></div></div>
+  <div className="campus-avatar-top"><button type="button" className="campus-avatar-current-zoom" disabled={!current} onClick={()=>setPreview(current)} aria-label="Agrandir ma photo de profil actuelle" title="Agrandir la photo"><AvatarVisual choice={current} photoUrl={photoUrl} size="large"/></button><div><strong>Ma photo de profil</strong><p>Choisis un personnage CAMPUS ou importe ta propre photo.</p><span className="campus-avatar-note">Touche une photo pour l'afficher en grand, puis choisis-la. Ton avatar est visible sur CAMPUS.</span></div></div>
   <div className="campus-avatar-grid" role="group" aria-label="Choisir un avatar parmi 11 illustrations">
-   {CAMPUS_AVATARS.map(item=><button type="button" key={item.id} aria-label={item.label} aria-pressed={current===item.id} title={item.label} className={'campus-avatar-item'+(current===item.id?' selected':'')} disabled={saving} onClick={()=>selectAvatar(item.id)}><AvatarVisual choice={item.id} label={item.label}/>{current===item.id&&<span className="campus-avatar-check" aria-hidden="true">✓</span>}</button>)}
+   {CAMPUS_AVATARS.map(item=><button type="button" key={item.id} aria-label={'Voir en grand : '+item.label} aria-pressed={current===item.id} title={'Agrandir : '+item.label} className={'campus-avatar-item'+(current===item.id?' selected':'')} disabled={saving} onClick={()=>setPreview(item.id)}><AvatarVisual choice={item.id} label={item.label}/>{current===item.id&&<span className="campus-avatar-check" aria-hidden="true">✓</span>}</button>)}
   </div>
   <div className="campus-avatar-upload">
    <button type="button" disabled={saving} className="campus-avatar-upload-button" onClick={()=>input.current?.click()}>
@@ -105,5 +120,18 @@ export default function AvatarPicker({sb,user,profile,onSaved}){
    <small>JPG, PNG ou photo de galerie · 8 Mo maximum · cadrage carré automatique.</small>
   </div>
   {message&&<p className={'campus-avatar-result '+(status==='error'?'error':status==='success'?'success':'')} role={status==='error'?'alert':'status'}>{message}</p>}
+  {preview&&<div className="campus-avatar-preview-backdrop" onMouseDown={e=>{if(e.target===e.currentTarget&&!saving)setPreview(null)}}>
+   <section className="campus-avatar-preview-dialog" role="dialog" aria-modal="true" aria-labelledby="campus-avatar-preview-title">
+    <button ref={previewClose} type="button" className="campus-avatar-preview-close" aria-label="Fermer l'aperçu" disabled={saving} onClick={()=>setPreview(null)}>×</button>
+    <span className="campus-avatar-preview-overline">APERÇU DE L'AVATAR</span>
+    <AvatarVisual choice={preview} photoUrl={preview==='custom'?photoUrl:null} label={previewLabel} size="preview"/>
+    <h3 id="campus-avatar-preview-title">{previewLabel}</h3>
+    <p>Voici comment ta photo apparaîtra sur CAMPUS.</p>
+    <div className="campus-avatar-preview-actions">
+     {preview!=='custom'&&<button className="campus-avatar-preview-confirm" type="button" disabled={saving||preview===current} onClick={()=>selectAvatar(preview)}>{saving?'Enregistrement…':preview===current?'Déjà sélectionné':'Utiliser cet avatar'}</button>}
+     <button className="campus-avatar-preview-cancel" type="button" disabled={saving} onClick={()=>setPreview(null)}>Fermer</button>
+    </div>
+   </section>
+  </div>}
  </section>;
 }
