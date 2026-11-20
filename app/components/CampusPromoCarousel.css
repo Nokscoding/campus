@@ -1,0 +1,22 @@
+/* CAMPUS — carrousel publicitaire, sans altérer l'illustration par défaut */
+.campus-promo{aspect-ratio:3/2;isolation:isolate}
+.campus-promo-window{height:100%;width:100%;overflow:hidden;border-radius:26px;box-shadow:0 26px 65px #4320bb16;background:#e8defe}
+.campus-promo-track{display:flex;width:100%;height:100%;transition:transform .55s cubic-bezier(.2,.7,.2,1);will-change:transform}
+.campus-promo-slide{position:relative;flex:0 0 100%;min-width:0;overflow:hidden;isolation:isolate}
+.campus-promo-slide>img{display:block;width:100%;height:100%;object-fit:cover}
+.campus-promo-shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(16,8,46,.8),rgba(16,8,46,.24) 45%,transparent 75%);pointer-events:none}
+.campus-promo-content{position:absolute;z-index:1;inset:auto 0 0;padding:clamp(14px,3.2vw,30px);display:flex;flex-direction:column;align-items:flex-start;gap:12px;color:white}
+.campus-promo-copy{max-width:85%}
+.campus-promo-copy h2{font-family:Outfit,Arial,sans-serif;font-size:clamp(19px,2.5vw,34px);line-height:1.13;letter-spacing:-.03em;margin:0 0 5px;color:#fff}
+.campus-promo-copy p{margin:4px 0 9px;font-size:clamp(11px,1.3vw,16px);line-height:1.35;color:#fff}
+.campus-promo-cta{display:inline-flex;align-items:center;gap:10px;padding:11px 16px;background:#6139e9;color:white;border:1px solid #ffffff70;border-radius:12px;font-size:13px;font-weight:800;max-width:100%;text-decoration:none}
+.campus-promo-cta:hover,.campus-promo-cta:focus-visible{background:#4923bf}
+.campus-promo-cta span{font-size:17px}
+.campus-promo-disclosure{font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;border:1px solid #ffffff70;background:#190d429e;padding:6px 10px;border-radius:40px;color:white;backdrop-filter:blur(5px)}
+.campus-promo-arrow{position:absolute;z-index:2;top:45%;transform:translateY(-50%);width:34px;height:34px;border:1px solid #ffffffb0;border-radius:50%;background:#ffffffd9;color:#4421b9;font-size:27px;display:grid;place-items:center;line-height:1;cursor:pointer;box-shadow:0 2px 15px #10052f1f}
+.campus-promo-prev{left:10px}.campus-promo-next{right:10px}
+.campus-promo-dots{position:absolute;z-index:3;right:17px;bottom:16px;display:flex;gap:6px;align-items:center}
+.campus-promo-dots button{width:7px;height:7px;border-radius:20px;border:0;background:#ffffff89;cursor:pointer;padding:0;transition:width .2s ease,background .2s ease}
+.campus-promo-dots button.active{width:24px;background:white}
+@media(max-width:640px){.campus-promo{margin-top:15px}.campus-promo-window{border-radius:19px}.campus-promo-content{padding:13px 14px;gap:8px}.campus-promo-copy{max-width:85%}.campus-promo-copy h2{font-size:21px}.campus-promo-copy p{font-size:11px;margin-bottom:7px}.campus-promo-cta{font-size:11px;padding:8px 11px;border-radius:9px}.campus-promo-disclosure{font-size:9px;padding:5px 9px}.campus-promo-arrow{width:27px;height:27px;font-size:23px;top:40%}.campus-promo-prev{left:6px}.campus-promo-next{right:6px}.campus-promo-dots{bottom:12px;right:12px}}
+@media(prefers-reduced-motion:reduce){.campus-promo-track,.campus-promo-dots button{transition:none}}
