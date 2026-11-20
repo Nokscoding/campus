@@ -1,17 +1,17 @@
 'use client';
 import {useEffect,useMemo,useRef,useState} from 'react';
 export const CAMPUS_AVATARS=[
- {id:'avatar-01',label:'Tresses et lunettes'},
- {id:'avatar-02',label:'Casquette rose'},
- {id:'avatar-03',label:'Sweat bleu-vert'},
- {id:'avatar-04',label:'Sweat bleu'},
- {id:'avatar-05',label:'Afro et sweat lilas'},
- {id:'avatar-06',label:'Barbe et sweat vert'},
- {id:'avatar-07',label:'Cheveux blonds et sweat rose'},
- {id:'avatar-08',label:'Sweat jaune'},
- {id:'avatar-09',label:'Longues tresses noires'},
- {id:'avatar-10',label:'Lunettes et hoodie noir'},
- {id:'avatar-11',label:'Veste à col crème'}
+ {id:'avatar-01',label:'Inès'},
+ {id:'avatar-02',label:'Malik'},
+ {id:'avatar-03',label:'Jade'},
+ {id:'avatar-04',label:'Léo'},
+ {id:'avatar-05',label:'Naomi'},
+ {id:'avatar-06',label:'Samuel'},
+ {id:'avatar-07',label:'Emma'},
+ {id:'avatar-08',label:'Jordan'},
+ {id:'avatar-09',label:'Maya'},
+ {id:'avatar-10',label:'Noks'},
+ {id:'avatar-11',label:'Ethan'}
 ];
 export function avatarUrl(sb,path,updatedAt){
  if(!sb||!path)return null;
@@ -23,7 +23,7 @@ export function AvatarVisual({choice,photoUrl,className='',label,size='regular'}
  const index=CAMPUS_AVATARS.findIndex(v=>v.id===choice);
  const css=choice==='avatar-09'
   ? {backgroundImage:"url('https://res.cloudinary.com/jrgtsxkt/image/upload/v1795113099/campus/avatars/avatar-09-tresses-noires.webp')",backgroundSize:'cover',backgroundPosition:'center'}
-  : index>=0 ? {backgroundImage:"url('/avatars/campus-sprite.webp')",
+  : index>=0 ? {backgroundImage:"url('https://res.cloudinary.com/jrgtsxkt/image/upload/e_upscale/f_webp,q_90/v1795169694/campus/avatars/campus-avatar-sprite-original.webp')",
   backgroundSize:'400% 300%',backgroundPosition:(index%4)*100/3+'% '+Math.floor(index/4)*50+'%'} : null;
  return <span className={'campus-avatar-visual '+className+' campus-avatar-'+size} style={choice==='custom'&&photoUrl?{backgroundImage:'url('+JSON.stringify(photoUrl).slice(1,-1)+')',backgroundSize:'cover',backgroundPosition:'center'}:css||{}} role="img" aria-label={label||'Avatar CAMPUS'}>
  {!css&&!(choice==='custom'&&photoUrl)&&<span aria-hidden="true">C</span>}
