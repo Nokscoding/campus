@@ -31,11 +31,19 @@
 }
 .campus-promo-copy p{margin:0;font-size:12px;line-height:1.45;color:#675d7d}
 .campus-promo-cta{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  padding:9px 12px;background:#6139e9;color:#fff;border-radius:10px;
-  font-size:12px;font-weight:800;text-decoration:none;flex-shrink:0;
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  min-height:47px;padding:11px 18px 11px 21px;
+  border:1px solid rgba(255,255,255,.16);border-radius:999px;
+  background:linear-gradient(115deg,#7840f1 0%,#5f32e7 58%,#4c25c5 100%);
+  box-shadow:0 8px 19px rgba(82,43,198,.25),inset 0 1px 0 rgba(255,255,255,.2);
+  color:#fff;font:800 13px/1.2 Outfit,Arial,sans-serif;
+  text-decoration:none;flex-shrink:0;white-space:nowrap;
+  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;
 }
-.campus-promo-cta:hover,.campus-promo-cta:focus-visible{background:#4923bf}
+.campus-promo-cta-arrow{flex-shrink:0;transition:transform .2s ease}
+.campus-promo-cta:hover{filter:brightness(1.06);transform:translateY(-2px);box-shadow:0 12px 24px rgba(82,43,198,.32)}
+.campus-promo-cta:hover .campus-promo-cta-arrow{transform:translateX(3px)}
+.campus-promo-cta:active{transform:translateY(0);box-shadow:0 4px 12px rgba(82,43,198,.2)}
 .campus-promo-toolbar{
   display:flex;justify-content:space-between;align-items:center;gap:10px;
   margin-top:10px;min-height:30px;
@@ -70,10 +78,10 @@
   .campus-promo-copy{padding:10px 2px 2px;align-items:flex-start}
   .campus-promo-copy h2{font-size:15px}
   .campus-promo-copy p{font-size:11px}
-  .campus-promo-cta{font-size:11px;padding:8px 10px}
+  .campus-promo-cta{min-height:44px;font-size:13px;padding:10px 16px 10px 19px;gap:10px}
   .campus-promo-toolbar{margin-top:8px}
   .campus-promo-arrow{width:28px;height:28px}
 }
 @media(prefers-reduced-motion:reduce){
-  .campus-promo-track,.campus-promo-dots button{transition:none}
+  .campus-promo-track,.campus-promo-dots button,.campus-promo-cta,.campus-promo-cta-arrow{transition:none}
 }
