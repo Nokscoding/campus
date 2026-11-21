@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import {useEffect,useState} from 'react';
 import {createClient} from '@supabase/supabase-js';
-import {UNIVERSITIES,FACULTIES,universityName,facultyName} from '../lib/campus-schools';
+import {UNIVERSITIES,FACULTIES,universityName} from '../lib/campus-schools';
 
 const DEFAULT_FILTERS={university:'',faculty:'',category:'',currency:'',minPrice:'',maxPrice:'',sort:'recommended'};
 const PAGE_SIZE=24;
@@ -71,8 +71,7 @@ export default function CampusFeed({initialListings=[],search='',category='',var
  return <section className={variant==='category'?'section category-results':'section listings-section'} id={variant==='category'?'produits':'catalogue'}>
   <div className="section-heading"><div><span className="overline">{variant==='category'?'ANNONCES DE LA COMMUNAUTÉ':'LES BONS PLANS DU CAMPUS'}</span>
    <h2>{pageTitle}</h2>
-   {preference?<div className="campus-ranking-info"><span className="campus-ranking-dot"/><span>Pour toi : <strong>{universityName(preference.university)}</strong>{preference.faculty?', '+facultyName(preference.faculty):''} — les annonces qui te correspondent passent en premier par défaut, mais tu peux aussi acheter auprès des étudiants des autres universités.</span></div>
-   :<p>Découvre les annonces publiées par les étudiants de toutes les universités.</p>}
+
   </div>{variant==='home'&&<Link href="/vendre" className="text-link">Déposer une annonce <span aria-hidden="true">→</span></Link>}</div>
 
   <div className="campus-filters" aria-label="Filtrer les produits">
@@ -81,7 +80,7 @@ export default function CampusFeed({initialListings=[],search='',category='',var
      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 7h16M7 12h10m-7 5h4"/><circle cx="8" cy="7" r="2" fill="currentColor" stroke="none"/></svg>
      Filtres {activeCount>0&&<span className="campus-filter-count">{activeCount}</span>}
     </button>
-    <span className="campus-filters-description">UNH, UPL, UNILU : toutes les annonces sont accessibles.</span>
+
     <label className="campus-filter-sort">Trier par
      <select aria-label="Trier les annonces" value={filters.sort} onChange={e=>updateFilter('sort',e.target.value)}>
       <option value="recommended">Pour toi</option><option value="newest">Plus récentes</option>
@@ -130,8 +129,10 @@ export default function CampusFeed({initialListings=[],search='',category='',var
    <div className="product-info">
     {preference&&p.same_university&&<span className="student-match-label">{p.same_faculty?'Même faculté et université':'De ton université'}</span>}
     {!p.same_university&&preference&&p.same_faculty&&<span className="student-match-label student-match-secondary">Même domaine d'études</span>}
-    {p.university&&<span className="campus-product-university">{UNIVERSITIES.some(u=>u.value===p.university)?p.university:universityName(p.university)||'Université'}</span>}
-    <span className="product-category">{p.category}</span>
+    <div className="campus-product-meta-row">
+     {p.university&&<span className="campus-product-university">{UNIVERSITIES.some(u=>u.value===p.university)?p.university:universityName(p.university)||'Université'}</span>}
+     <span className="product-category">{p.category}</span>
+    </div>
     <h3><Link href={'/produit/'+p.id}>{p.title}</Link></h3>
     <strong>{Number(p.price).toLocaleString('fr-FR')} {p.currency}</strong>
     <p>État déclaré : {p.condition}</p>{p.has_issue&&<span className="campus-defect-card-tag">Défaut déclaré par le vendeur</span>}
