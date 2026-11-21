@@ -415,3 +415,10 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
 .campus-feed-pagination span{font-size:11px;color:#897c9e}
 @media(max-width:760px){.campus-filters{margin:17px 0 19px;padding:12px;border-radius:15px}.campus-filters-toolbar{display:grid;grid-template-columns:1fr auto;gap:9px}.campus-filter-trigger{grid-column:1;grid-row:1;justify-self:start}.campus-filter-sort{grid-column:2;grid-row:1}.campus-filter-sort select{max-width:146px}.campus-filters-description{grid-column:1/-1;grid-row:2;font-size:11px}.campus-filters-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 10px}.campus-filters-grid label{font-size:11px}.campus-filters-grid select,.campus-filters-grid input{font-size:12px;padding:10px}}
 @media(max-width:390px){.campus-filters-grid{grid-template-columns:1fr}.campus-filter-sort{gap:4px}.campus-filter-sort select{max-width:132px;padding:8px}.campus-filters-toolbar{grid-template-columns:auto 1fr}.campus-filter-trigger{padding:10px}.campus-filter-sort{justify-self:end}}
+
+/* Cartes produit : alignement soigné entre université et catégorie */
+.campus-product-meta-row{display:flex;align-items:center;flex-wrap:wrap;column-gap:12px;row-gap:8px;margin:3px 0 13px;min-width:0}
+.campus-product-meta-row .campus-product-university{margin:0;flex:0 0 auto}
+.campus-product-meta-row .product-category{margin:0;min-width:0;line-height:1.45}
+.campus-filters-toolbar>.campus-filter-sort{margin-left:auto}
+@media(max-width:760px){.campus-product-meta-row{column-gap:10px;row-gap:7px;margin-bottom:12px}.campus-filters-toolbar{grid-template-columns:1fr auto}.campus-filter-trigger{grid-column:1}.campus-filter-sort{grid-column:2}}
