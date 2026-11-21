@@ -1,5 +1,5 @@
-/* CAMPUS branded fullscreen loader for initial loading and all route transitions. */
-.campus-fullscreen-loader{position:fixed;inset:0;z-index:2147483000;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease,visibility .5s}
+/* CAMPUS branded fullscreen loader — initial page launch only, never route transitions. */
+.campus-fullscreen-loader{position:fixed;inset:0;z-index:2147483000;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .32s ease,visibility .32s}
 .campus-fullscreen-loader.lg-hide{opacity:0;visibility:hidden;pointer-events:none}
 .campus-fullscreen-loader svg{width:min(34vw,160px);height:auto;overflow:visible}
 .campus-fullscreen-loader .lg-top,.campus-fullscreen-loader .lg-bot{transform-origin:627px 615px}
