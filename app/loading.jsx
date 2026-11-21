@@ -1,1 +1,4 @@
-export default function Loading(){return <div className="campus-loading" role="status" aria-live="polite"><img src="https://res.cloudinary.com/jrgtsxkt/image/upload/f_auto,q_auto,w_96,h_96,c_fill/v1794856878/campus/brand/approved-ribbon-mark.png" alt="" width="70" height="70"/><span>Chargement de CAMPUS…</span></div>}
+import CampusLoaderArtwork from './components/CampusLoaderArtwork';
+export default function Loading(){
+ return <CampusLoaderArtwork variant="route"/>;
+}

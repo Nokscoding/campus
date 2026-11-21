@@ -1,10 +1,10 @@
-/* The supplied CAMPUS SVG startup loader, shown once per document load. */
-#lg-loader{position:fixed;inset:0;z-index:9999;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease,visibility .5s}
-#lg-loader.lg-hide{opacity:0;visibility:hidden;pointer-events:none}
-#lg-loader svg{width:min(34vw,160px);height:auto;overflow:visible}
-#lg-loader .lg-top,#lg-loader .lg-bot{transform-origin:627px 615px}
-#lg-loader .lg-top{animation:lgTop 2.4s cubic-bezier(.3,.8,.3,1) infinite}
-#lg-loader .lg-bot{animation:lgBot 2.4s cubic-bezier(.3,.8,.3,1) infinite}
+/* CAMPUS branded fullscreen loader for initial loading and all route transitions. */
+.campus-fullscreen-loader{position:fixed;inset:0;z-index:2147483000;background:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease,visibility .5s}
+.campus-fullscreen-loader.lg-hide{opacity:0;visibility:hidden;pointer-events:none}
+.campus-fullscreen-loader svg{width:min(34vw,160px);height:auto;overflow:visible}
+.campus-fullscreen-loader .lg-top,.campus-fullscreen-loader .lg-bot{transform-origin:627px 615px}
+.campus-fullscreen-loader .lg-top{animation:lgTop 2.4s cubic-bezier(.3,.8,.3,1) infinite}
+.campus-fullscreen-loader .lg-bot{animation:lgBot 2.4s cubic-bezier(.3,.8,.3,1) infinite}
 @keyframes lgTop{
  0%{opacity:0;transform:rotate(-120deg) scale(.5)}
  35%,80%{opacity:1;transform:none}
@@ -16,5 +16,5 @@
  100%{opacity:0;transform:translate(40px,-40px) rotate(20deg) scale(.8)}
 }
 @media (prefers-reduced-motion:reduce){
- #lg-loader,#lg-loader .lg-top,#lg-loader .lg-bot{animation:none;transition:none}
+ .campus-fullscreen-loader,.campus-fullscreen-loader .lg-top,.campus-fullscreen-loader .lg-bot{animation:none;transition:none}
 }
