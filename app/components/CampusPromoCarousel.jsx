@@ -11,14 +11,16 @@ function validHref(raw){
 export default function CampusPromoCarousel({promotions=[]}){
  const items=Array.isArray(promotions)?promotions:[];
  const [index,setIndex]=useState(0);
- const [paused,setPaused]=useState(false);
  const touch=useRef(null);
  useEffect(()=>{if(index>=items.length)setIndex(0)},[index,items.length]);
  useEffect(()=>{
-  if(items.length<2||paused||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  const interval=window.setInterval(()=>setIndex(i=>(i+1)%items.length),6000);
+  if(items.length<2||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  // Autoplay also resumes after touch, swipe, arrow click and focus on mobile.
+  const interval=window.setInterval(()=>{
+   if(document.visibilityState==='visible')setIndex(i=>(i+1)%items.length);
+  },5000);
   return()=>window.clearInterval(interval);
- },[paused,items.length]);
+ },[items.length]);
  const move=delta=>setIndex(i=>(i+delta+items.length)%items.length);
  if(!items.length)return <div className="hero-photo-panel"><img className="hero-photo" src={fallbackImage} alt="Illustration CAMPUS : étudiants avec ordinateur, téléphone et agent de livraison" width="1536" height="1024"/></div>;
 
@@ -27,9 +29,6 @@ export default function CampusPromoCarousel({promotions=[]}){
  const external=link&&!link.startsWith('/');
  const hasCopy=Boolean(active.title||active.subtitle||(link&&active.button_text));
  return <div className="hero-photo-panel campus-promo" aria-roledescription="carrousel" aria-label="Publicités et annonces CAMPUS"
-  onMouseEnter={()=>setPaused(true)} onMouseLeave={()=>setPaused(false)}
-  onFocusCapture={()=>setPaused(true)}
-  onBlurCapture={e=>{if(!e.currentTarget.contains(e.relatedTarget))setPaused(false)}}
   onKeyDown={e=>{if(e.key==='ArrowLeft'){e.preventDefault();move(-1)}if(e.key==='ArrowRight'){e.preventDefault();move(1)}}}>
   <div className="campus-promo-window"
    onTouchStart={e=>{touch.current=e.touches[0]?.clientX??null}}
