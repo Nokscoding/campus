@@ -17,7 +17,7 @@ export default function CampusFeed({initialListings=[],search='',category='',var
  const [loadError,setLoadError]=useState('');
  const [hasMore,setHasMore]=useState(false);
  const [totalCount,setTotalCount]=useState(initialListings.length);
- const updateFilter=(key,value)=>setFilters(previous=>({...previous,[key]:value,...(key==='currency'&&value===''?{minPrice:'',maxPrice:''}:{})}));
+ const updateFilter=(key,value)=>setFilters(previous=>({...previous,[key]:value,...(key==='currency'&&value===''?{minPrice:'',maxPrice:'',sort:['price_asc','price_desc'].includes(previous.sort)?'recommended':previous.sort}:{})}));
  const resetFilters=()=>setFilters({...DEFAULT_FILTERS});
  const activeCount=[filters.university,filters.faculty,...(category?[]:[filters.category]),filters.currency,filters.minPrice,filters.maxPrice,filters.sort==='recommended'?'':filters.sort].filter(Boolean).length;
  const selectedCategory=category||filters.category;
@@ -33,7 +33,7 @@ export default function CampusFeed({initialListings=[],search='',category='',var
   const timeout=setTimeout(async()=>{
    const url=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
    if(!url||!key){setLoadError('Le catalogue est momentanément indisponible.');return;}
-   if(!priceValid){setLoadError('Le prix minimum doit être inférieur au prix maximum.');return;}
+   if(!priceValid){setLoading(false);setLoadError('Le prix minimum doit être inférieur au prix maximum.');return;}
    setLoading(true);setLoadError('');
    try{
     const client=createClient(url,key);
@@ -85,7 +85,7 @@ export default function CampusFeed({initialListings=[],search='',category='',var
     <label className="campus-filter-sort">Trier par
      <select aria-label="Trier les annonces" value={filters.sort} onChange={e=>updateFilter('sort',e.target.value)}>
       <option value="recommended">Pour toi</option><option value="newest">Plus récentes</option>
-      <option value="price_asc">Prix croissant</option><option value="price_desc">Prix décroissant</option>
+      <option value="price_asc" disabled={!filters.currency}>Prix croissant (devise)</option><option value="price_desc" disabled={!filters.currency}>Prix décroissant (devise)</option>
      </select>
     </label>
    </div>
