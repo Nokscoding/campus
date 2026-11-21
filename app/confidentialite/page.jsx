@@ -4,7 +4,7 @@ export default function Privacy(){return <LegalDocument title="Politique de conf
  <section><h2>1. Qui est responsable de tes données ?</h2><p>Le service CAMPUS est édité et exploité par <strong>NKS Services SARLU</strong>, à Lubumbashi, République démocratique du Congo. NKS Services détermine les finalités et les moyens des traitements réalisés pour le fonctionnement de la marketplace CAMPUS.</p><p>Contact pour les questions relatives aux données personnelles : <a href="mailto:nksserviceshelp@gmail.com">nksserviceshelp@gmail.com</a> ou WhatsApp au <a href="https://wa.me/243986410520">+243 986 410 520</a>.</p></section>
  <section><h2>2. Quelles données sont collectées ?</h2><ul>
   <li><strong>Compte et connexion :</strong> adresse e-mail, identifiant de compte, données d'authentification gérées par Supabase Auth et événements techniques de sécurité. CAMPUS ne reçoit pas ton mot de passe en clair.</li>
-  <li><strong>Profil étudiant :</strong> nom affiché, université, faculté ou domaine d'études, numéro de téléphone, avatar choisi ou photo de profil et préférences facultatives, notamment l'option SMS.</li>
+  <li><strong>Profil étudiant :</strong> nom affiché, université, numéro de téléphone, avatar choisi ou photo de profil et préférences facultatives, notamment l'option SMS. Les facultés indiquées sur d'anciens profils ne sont plus demandées ni utilisées pour les recommandations.</li>
   <li><strong>Annonces :</strong> titre, description, catégorie, prix, devise, état déclaré, défauts signalés, photos, dates et statut de modération.</li>
   <li><strong>Commandes et transactions :</strong> identifiants acheteur et vendeur, produit concerné, prix, frais annoncés, devise, étapes de la commande, affectation d'un agent, encaissement en espèces et reçu.</li>
   <li><strong>Inspection et livraison :</strong> compte rendu, résultat, notes et photos prises par l'agent pour documenter le contrôle et la remise du produit.</li>
@@ -15,7 +15,7 @@ export default function Privacy(){return <LegalDocument title="Politique de conf
  <section><h2>3. Pourquoi utilisons-nous ces données ?</h2><ul>
   <li>Créer, authentifier et sécuriser ton compte étudiant ;</li>
   <li>afficher les annonces que tu choisis de publier et permettre leur modération ;</li>
-  <li>personnaliser l'ordre de certaines annonces à partir de ton université et de ta faculté ;</li>
+  <li>personnaliser l'ordre de certaines annonces uniquement à partir de ton université ;</li>
   <li>recevoir et traiter les demandes d'achat, préparer les frais, organiser le retrait, l'inspection et la remise sur le campus ;</li>
   <li>enregistrer les paiements en espèces et produire les reçus correspondants ;</li>
   <li>envoyer les notifications relatives à tes annonces, commandes et livraisons ;</li>
