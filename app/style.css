@@ -385,3 +385,33 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
  .campus-avatar-item{width:min(100%,76px);justify-self:center}
  .campus-avatar-item>.campus-avatar-visual{width:100%;height:auto;aspect-ratio:1/1}
 }
+
+/* CAMPUS — filtres du catalogue, priorité mobile et classement personnalisé */
+.campus-filters{margin:23px 0 22px;border:1px solid #e9e2f5;background:#fff;border-radius:18px;padding:14px 16px;box-shadow:0 3px 16px rgba(47,24,91,.035)}
+.campus-filters-toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;min-width:0}
+.campus-filter-trigger{display:inline-flex;gap:9px;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border:1px solid #dcd2f6;border-radius:12px;background:#f5f1ff;color:#5430cb;font:800 13px Outfit,Arial,sans-serif;cursor:pointer}
+.campus-filter-trigger.is-active{background:#5935ec;border-color:#5935ec;color:#fff}
+.campus-filter-count{display:grid;place-items:center;min-width:19px;height:19px;padding:0 5px;border-radius:12px;background:#fff;color:#5d38e3;font-size:11px}
+.campus-filters-description{flex:1;min-width:180px;font-size:12px;color:#766b88;line-height:1.4}
+.campus-filter-sort{display:flex;gap:9px;align-items:center;font:700 12px Outfit,Arial,sans-serif;color:#5f5573}
+.campus-filter-sort select{min-height:42px;border:1px solid #e6e0f1;background:#fff;color:#392765;border-radius:11px;padding:9px 12px;font-size:12px;font-weight:700;max-width:180px}
+.campus-filters-panel{margin-top:16px;border-top:1px solid #f0eaf8;padding-top:16px}
+.campus-filters-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px 14px}
+.campus-filters-grid label{display:flex;flex-direction:column;gap:7px;font:800 12px Outfit,Arial,sans-serif;color:#4f406a;min-width:0}
+.campus-filters-grid select,.campus-filters-grid input{width:100%;min-width:0;min-height:43px;padding:10px 12px;border-radius:11px;background:#faf9ff;border:1px solid #dfd8ee;font:500 13px 'DM Sans',Arial,sans-serif;color:#2b2045;outline-offset:2px}
+.campus-filters-grid input:disabled{color:#aaa3b8;background:#f4f1f9;cursor:not-allowed}
+.campus-filters-grid select:focus-visible,.campus-filters-grid input:focus-visible,.campus-filter-trigger:focus-visible,.campus-clear-filters:focus-visible{outline:3px solid #aa8aff;outline-offset:2px}
+.campus-filters-bottom{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding-top:15px}
+.campus-filters-bottom>span{font-size:11px;color:#7d708e;line-height:1.5}
+.campus-clear-filters,.campus-filters-active button{border:0;background:transparent;color:#5c36d7;font-size:12px;font-weight:800;cursor:pointer;padding:7px 0}
+.campus-clear-filters:disabled{opacity:.4;cursor:default}
+.campus-filters-active{display:flex;align-items:center;gap:14px;padding:12px 2px 0;font-size:12px;font-weight:700;color:#5e5080}
+.campus-filter-error{color:#a8364e;background:#fff5f6;border-radius:9px;padding:11px 13px;font-size:12px}
+.campus-product-university{display:inline-flex;max-width:100%;margin:0 0 7px 0;padding:4px 9px;border:1px solid #e6ddf6;border-radius:7px;background:#faf8ff;color:#5c458a;font-size:10px;font-weight:800;letter-spacing:.015em;vertical-align:middle}
+.campus-feed-loading{padding:26px;text-align:center;color:#6249a6;background:#faf8ff;border-radius:16px;font-size:13px}
+.campus-feed-pagination{display:flex;flex-direction:column;align-items:center;gap:8px;padding:24px 0 0}
+.campus-feed-pagination button{background:#5c36e6;color:#fff;border:0;border-radius:12px;padding:12px 23px;font:800 13px Outfit,Arial,sans-serif;cursor:pointer}
+.campus-feed-pagination button:disabled{opacity:.6;cursor:wait}
+.campus-feed-pagination span{font-size:11px;color:#897c9e}
+@media(max-width:760px){.campus-filters{margin:17px 0 19px;padding:12px;border-radius:15px}.campus-filters-toolbar{display:grid;grid-template-columns:1fr auto;gap:9px}.campus-filter-trigger{grid-column:1;grid-row:1;justify-self:start}.campus-filter-sort{grid-column:2;grid-row:1}.campus-filter-sort select{max-width:146px}.campus-filters-description{grid-column:1/-1;grid-row:2;font-size:11px}.campus-filters-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 10px}.campus-filters-grid label{font-size:11px}.campus-filters-grid select,.campus-filters-grid input{font-size:12px;padding:10px}}
+@media(max-width:390px){.campus-filters-grid{grid-template-columns:1fr}.campus-filter-sort{gap:4px}.campus-filter-sort select{max-width:132px;padding:8px}.campus-filters-toolbar{grid-template-columns:auto 1fr}.campus-filter-trigger{padding:10px}.campus-filter-sort{justify-self:end}}
