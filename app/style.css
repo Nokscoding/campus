@@ -479,11 +479,3 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
  .campus-product-photo-hint{bottom:8px;right:8px}
 }
 
-/* Loader only for slow network navigation (not every click or browser back). */
-.campus-delayed-route-loader{
- position:fixed;inset:0;z-index:2147483000;visibility:hidden;pointer-events:none;
- animation:campusRevealSlowLoading 0s linear .7s forwards;
-}
-@keyframes campusRevealSlowLoading{
- to{visibility:visible;pointer-events:auto}
-}
