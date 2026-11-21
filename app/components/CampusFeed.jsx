@@ -4,10 +4,10 @@ import {useEffect,useState} from 'react';
 import {createClient} from '@supabase/supabase-js';
 import {UNIVERSITIES,universityName} from '../lib/campus-schools';
 
-const DEFAULT_FILTERS={university:'',category:'',currency:'',minPrice:'',maxPrice:'',sort:'recommended'};
+const DEFAULT_FILTERS={university:'',category:'',currency:'',minPrice:'',maxPrice:'',sort:'shuffle'};
 const PAGE_SIZE=24;
 
-export default function CampusFeed({initialListings=[],search='',category='',variant='home',categoryOptions=[]}){
+export default function CampusFeed({initialListings=[],search='',category='',variant='home',categoryOptions=[],shuffleSeed='initial'}){
  const [items,setItems]=useState(initialListings);
  const [preference,setPreference]=useState(null);
  const [filters,setFilters]=useState(DEFAULT_FILTERS);
@@ -17,15 +17,15 @@ export default function CampusFeed({initialListings=[],search='',category='',var
  const [loadError,setLoadError]=useState('');
  const [hasMore,setHasMore]=useState(false);
  const [totalCount,setTotalCount]=useState(initialListings.length);
- const updateFilter=(key,value)=>setFilters(previous=>({...previous,[key]:value,...(key==='currency'&&value===''?{minPrice:'',maxPrice:'',sort:['price_asc','price_desc'].includes(previous.sort)?'recommended':previous.sort}:{})}));
+ const updateFilter=(key,value)=>setFilters(previous=>({...previous,[key]:value,...(key==='currency'&&value===''?{minPrice:'',maxPrice:'',sort:['price_asc','price_desc'].includes(previous.sort)?'shuffle':previous.sort}:{})}));
  const resetFilters=()=>setFilters({...DEFAULT_FILTERS});
- const activeCount=[filters.university,...(category?[]:[filters.category]),filters.currency,filters.minPrice,filters.maxPrice,filters.sort==='recommended'?'':filters.sort].filter(Boolean).length;
+ const activeCount=[filters.university,...(category?[]:[filters.category]),filters.currency,filters.minPrice,filters.maxPrice,filters.sort==='shuffle'?'':filters.sort].filter(Boolean).length;
  const selectedCategory=category||filters.category;
  const categoryChoices=[...new Set([category,...categoryOptions, ...initialListings.map(x=>x.category)].filter(Boolean))];
  const priceValid=!filters.currency||filters.minPrice===''||filters.maxPrice===''||Number(filters.minPrice)<=Number(filters.maxPrice);
  const pageTitle=variant==='category'
   ?totalCount+' annonce'+(totalCount!==1?'s':'')+' disponible'+(totalCount!==1?'s':'')
-  :search?'Résultats pour « '+search+' »':category?'Annonces : '+category:'Fraîchement mis en vente';
+  :search?'Résultats pour « '+search+' »':category?'Annonces : '+category:'À découvrir sur CAMPUS';
 
  useEffect(()=>{setPage(0)},[search,category,variant,filters.university,filters.category,filters.currency,filters.minPrice,filters.maxPrice,filters.sort]);
  useEffect(()=>{
@@ -49,7 +49,7 @@ export default function CampusFeed({initialListings=[],search='',category='',var
      p_currency:filters.currency,
      p_min_price:filters.currency&&filters.minPrice!==''?Number(filters.minPrice):null,
      p_max_price:filters.currency&&filters.maxPrice!==''?Number(filters.maxPrice):null,
-     p_sort:filters.sort,p_limit:PAGE_SIZE,p_offset:page*PAGE_SIZE
+     p_sort:filters.sort==='shuffle'?'shuffle:'+shuffleSeed:filters.sort,p_limit:PAGE_SIZE,p_offset:page*PAGE_SIZE
     });
     if(error)throw error;
     if(!alive)return;
@@ -66,7 +66,7 @@ export default function CampusFeed({initialListings=[],search='',category='',var
    }finally{if(alive)setLoading(false)}
   },180);
   return()=>{alive=false;clearTimeout(timeout)};
- },[search,selectedCategory,variant,filters.university,filters.currency,filters.minPrice,filters.maxPrice,filters.sort,page,priceValid]);
+ },[search,selectedCategory,variant,filters.university,filters.currency,filters.minPrice,filters.maxPrice,filters.sort,shuffleSeed,page,priceValid]);
 
  return <section className={variant==='category'?'section category-results':'section listings-section'} id={variant==='category'?'produits':'catalogue'}>
   <div className="section-heading"><div><span className="overline">{variant==='category'?'ANNONCES DE LA COMMUNAUTÉ':'LES BONS PLANS DU CAMPUS'}</span>
@@ -83,7 +83,7 @@ export default function CampusFeed({initialListings=[],search='',category='',var
 
     <label className="campus-filter-sort">Trier par
      <select aria-label="Trier les annonces" value={filters.sort} onChange={e=>updateFilter('sort',e.target.value)}>
-      <option value="recommended">Pour toi</option><option value="newest">Plus récentes</option>
+      <option value="shuffle">Aléatoire</option><option value="recommended">Pour toi</option><option value="newest">Plus récentes</option>
       <option value="price_asc" disabled={!filters.currency}>Prix croissant (devise)</option><option value="price_desc" disabled={!filters.currency}>Prix décroissant (devise)</option>
      </select>
     </label>
@@ -118,7 +118,7 @@ export default function CampusFeed({initialListings=[],search='',category='',var
    {loadError&&<p className="campus-filter-error" role="alert">{loadError}</p>}
   </div>
 
-  {loading&&page===0?<div className="campus-feed-loading" role="status">Recherche des annonces en cours…</div>
+  {loading&&page===0&&!items.length?<div className="campus-feed-loading" role="status">Recherche des annonces en cours…</div>
    :items.length?<div className="product-grid">{items.map(p=><article className="product-card" key={p.id}>
    <Link href={'/produit/'+p.id} className="product-photo">{p.images?.[0]?<img src={p.images[0]} alt={p.title} loading="lazy"/>:<div className="product-placeholder">CAMPUS</div>}</Link>
    <div className="product-info">
