@@ -2,6 +2,7 @@ import './style.css';
 import './components/CampusStartupLoader.css';
 import CampusSupportDock from './components/CampusSupportDock';
 import CampusStartupLoader from './components/CampusStartupLoader';
+import CampusVisitTracker from './components/CampusVisitTracker';
 
 import CookieNotice from './components/CookieNotice';
 const origin='https://www.campus-rdc.com';
@@ -20,4 +21,4 @@ export const metadata={
  openGraph:{type:'website',locale:'fr_CD',url:origin,siteName:'CAMPUS',title:'CAMPUS — Achète malin, vends tranquille.',description:'La marketplace des étudiants à Lubumbashi, avec inspection et livraison sur le campus organisées par CAMPUS.',images:[{url:hero,width:1536,height:1024,alt:'Étudiants CAMPUS et livraison sécurisée'}]},
  twitter:{card:'summary_large_image',images:[hero]}
 };
-export default function RootLayout({children}){return <html lang="fr"><body><CampusStartupLoader/>{children}<CookieNotice/><CampusSupportDock/></body></html>}
+export default function RootLayout({children}){return <html lang="fr"><body><CampusStartupLoader/><CampusVisitTracker/>{children}<CookieNotice/><CampusSupportDock/></body></html>}
