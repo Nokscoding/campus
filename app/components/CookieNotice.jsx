@@ -8,7 +8,7 @@ export default function CookieNotice(){
  function close(){try{localStorage.setItem(KEY,'seen')}catch{}setVisible(false)}
  if(!visible)return null;
  return <aside className="campus-cookie-notice" aria-label="Information sur les cookies et le stockage">
-  <div><strong>Ta vie privée compte.</strong><p>CAMPUS utilise le stockage nécessaire à la connexion et aux fonctions que tu actives. Aucun cookie publicitaire ni outil de mesure d’audience n’est actuellement activé.</p><Link href="/cookies">Comprendre les cookies et le stockage</Link></div>
+  <div><strong>Ta vie privée compte.</strong><p>CAMPUS mesure les visites et la provenance des campagnes à l’aide de statistiques internes, sans cookie publicitaire. Des identifiants pseudonymes sont conservés sur cet appareil. Tu peux désactiver cette mesure dans les préférences.</p><Link href="/cookies">Consulter et gérer les préférences</Link></div>
   <button type="button" onClick={close}>Compris</button>
  </aside>;
 }
