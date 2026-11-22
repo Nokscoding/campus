@@ -479,3 +479,22 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
  .campus-product-photo-hint{bottom:8px;right:8px}
 }
 
+/* CAMPUS support dock: smooth exit into the screen edge near the footer */
+.campus-support-dock{
+ opacity:1;
+ transform:translateX(0);
+ visibility:visible;
+ transition:transform 380ms cubic-bezier(.22,1,.36,1),opacity 280ms ease,visibility 0s linear 0s;
+}
+.campus-support-dock--hidden{
+ opacity:0;
+ transform:translateX(calc(100% + 40px));
+ visibility:hidden;
+ pointer-events:none;
+ transition:transform 380ms cubic-bezier(.22,1,.36,1),opacity 280ms ease,visibility 0s linear 380ms;
+}
+@media(prefers-reduced-motion:reduce){
+ .campus-support-dock,.campus-support-dock--hidden{
+  transition:none;
+ }
+}
