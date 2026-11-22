@@ -498,3 +498,9 @@ main,section,article,nav,.hero-copy,.section-heading>div{min-width:0}
   transition:none;
  }
 }
+
+
+/* CAMPUS : prévention des échanges directs hors plateforme. */
+.campus-contact-policy-hint,.campus-contact-policy-warning{margin:5px 0 12px;padding:11px 13px;border-radius:10px;font-size:12px;line-height:1.6}
+.campus-contact-policy-hint{color:#5c5175;background:#f6f4fb;border:1px solid #eae4f4}
+.campus-contact-policy-warning{color:#91412d;background:#fff0e8;border:1px solid #edc3b1;font-weight:700}
