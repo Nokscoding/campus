@@ -11,6 +11,7 @@ export default function Privacy(){return <LegalDocument title="Politique de conf
   <li><strong>Assistance :</strong> sujet et description d'un bug, page concernée, date du signalement et échanges avec le support.</li>
   <li><strong>Notifications :</strong> notifications dans le compte et, uniquement si tu actives les alertes push, les informations techniques de l'abonnement de ton navigateur ou appareil.</li>
   <li><strong>Données techniques :</strong> informations nécessaires à la disponibilité, à la prévention des abus, à la sécurité et au diagnostic des erreurs, susceptibles d'être générées par l'hébergement et les services techniques.</li>
+  <li><strong>Mesure d'audience :</strong> dates, pages consultées, provenance des campagnes, type général d'appareil et identifiants aléatoires pseudonymes de visiteur et de session, sans nom, e-mail, téléphone ni adresse IP directement enregistrée dans la table de statistiques. Une désactivation est disponible dans la page Cookies.</li>
  </ul></section>
  <section><h2>3. Pourquoi utilisons-nous ces données ?</h2><ul>
   <li>Créer, authentifier et sécuriser ton compte étudiant ;</li>
@@ -20,6 +21,7 @@ export default function Privacy(){return <LegalDocument title="Politique de conf
   <li>enregistrer les paiements en espèces et produire les reçus correspondants ;</li>
   <li>envoyer les notifications relatives à tes annonces, commandes et livraisons ;</li>
   <li>répondre aux demandes d'assistance, traiter les signalements et prévenir les fraudes ou incidents ;</li>
+  <li>mesurer la fréquentation du site, les consultations d'annonces et les résultats des campagnes à l'aide de statistiques agrégées ;</li>
   <li>respecter les obligations légales et répondre aux demandes régulières des autorités compétentes.</li>
  </ul><p>Le numéro de téléphone et les informations de profil ne sont pas affichés dans les annonces publiques. Les agents autorisés peuvent accéder aux coordonnées nécessaires à l'exécution des missions qui leur sont attribuées. Les annonces publiées, leurs photos et leurs descriptions sont visibles par les visiteurs.</p></section>
  <section><h2>4. Sur quelle base les données sont-elles traitées ?</h2><p>Selon la fonction utilisée, CAMPUS s'appuie sur ton choix ou ton consentement lorsque celui-ci est requis, sur les opérations que tu demandes pour utiliser le service, sur les autorisations que tu accordes (par exemple les notifications push) et sur les obligations légales applicables. Les préférences facultatives, comme les SMS lorsqu'un service d'envoi sera activé, ne sont pas nécessaires à la création du compte.</p></section>
