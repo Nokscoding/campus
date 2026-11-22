@@ -44,7 +44,7 @@ export default function CampusPromoCarousel({promotions=[]}){
     {active.title&&<h2>{active.title}</h2>}
     {active.subtitle&&<p>{active.subtitle}</p>}
    </div>
-   {link&&active.button_text&&<a className="campus-promo-cta" href={link} target={external?'_blank':undefined} rel={external?'noopener noreferrer':undefined}><span className="campus-promo-cta-label">{active.button_text}</span><svg className="campus-promo-cta-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>}
+   {link&&active.button_text&&<a className="campus-promo-cta" onClick={()=>window.dispatchEvent(new CustomEvent('campus:marketing',{detail:{type:'promo_click'}}))} href={link} target={external?'_blank':undefined} rel={external?'noopener noreferrer':undefined}><span className="campus-promo-cta-label">{active.button_text}</span><svg className="campus-promo-cta-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>}
   </div>}
   <div className="campus-promo-toolbar">
    <span className="campus-promo-disclosure">{active.badge||'Annonce'}</span>
