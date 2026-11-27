@@ -1,17 +1,34 @@
-// Optimise les photos localement avant upload, sans envoyer les EXIF/GPS.
-export async function optimizeProductPhoto(file){
- const ext=file.type==='image/png'?'png':file.type==='image/webp'?'webp':'jpg';
+// Optimise les photos avant upload, avec un encodage compatible Safari.
+const extensions={'image/jpeg':'jpg','image/png':'png','image/webp':'webp'};
+async function decodePhoto(file){
+ if(typeof createImageBitmap==='function'){
+  try{return await createImageBitmap(file)}catch{}
+ }
+ const url=URL.createObjectURL(file);
  try{
-  const bitmap=await createImageBitmap(file);
-  const scale=Math.min(1,1280/Math.max(bitmap.width,bitmap.height));
+  const img=new Image();
+  await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=url});
+  return img;
+ }finally{URL.revokeObjectURL(url)}
+}
+export async function optimizeProductPhoto(file){
+ let source;
+ try{
+  source=await decodePhoto(file);
+  const width=source.naturalWidth||source.width,height=source.naturalHeight||source.height;
+  const scale=Math.min(1,1280/Math.max(width,height));
   const canvas=document.createElement('canvas');
-  canvas.width=Math.max(1,Math.round(bitmap.width*scale));
-  canvas.height=Math.max(1,Math.round(bitmap.height*scale));
+  canvas.width=Math.max(1,Math.round(width*scale));
+  canvas.height=Math.max(1,Math.round(height*scale));
   const ctx=canvas.getContext('2d',{alpha:false});
   if(!ctx)throw Error('Canvas non disponible');
-  ctx.drawImage(bitmap,0,0,canvas.width,canvas.height);bitmap.close?.();
-  const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/webp',0.8));
-  if(blob&&blob.size>0&&blob.size<file.size)return {file:blob,type:'image/webp',extension:'webp'};
- }catch{}
- return {file,type:file.type,extension:ext};
+  ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.drawImage(source,0,0,canvas.width,canvas.height);
+  const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/jpeg',0.82));
+  // Safari peut retourner un autre MIME que celui demandé.
+  if(blob&&blob.size>0&&extensions[blob.type]&&(blob.size<file.size||scale<1)){
+   return {file:blob,type:blob.type,extension:extensions[blob.type]};
+  }
+ }catch{}finally{source?.close?.()}
+ return {file,type:file.type,extension:extensions[file.type]||'jpg'};
 }
